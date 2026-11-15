@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: transparent; font-family: Arial, sans-serif; }
+  #dice-row { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; width:100%; }
+  .die-card { width:100%; min-width:0; height:246px; border:1px solid #555; border-radius:18px; background:#202020; box-shadow:0 3px 8px rgba(0,0,0,.18); padding:12px 7px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; color:#f5f5f5; cursor:pointer; user-select:none; transition:transform .08s ease,box-shadow .08s ease; }
+  .die-card:hover { border-color:#999; box-shadow:0 5px 12px rgba(0,0,0,.25); transform:translateY(-1px); }
+  .die-card:focus-visible { outline:3px solid #2563eb; outline-offset:3px; }
+  .die-card.kept { border:2px solid #22c55e; box-shadow:0 0 0 2px rgba(34,197,94,.20),0 4px 10px rgba(0,0,0,.25); }
+  .die-card.reroll { border:2px solid #f59e0b; }
+  .die-card-title { font-size:14px; font-weight:750; letter-spacing:.06em; }
+  .die-face { position:relative; width:min(100%,112px); aspect-ratio:1/1; border-radius:17px; overflow:hidden; background:linear-gradient(145deg,rgba(255,255,255,.30),transparent 38%),linear-gradient(325deg,rgba(0,0,0,.16),transparent 45%),var(--die-bg,#e8e8e8); border:1px solid rgba(0,0,0,.22); box-shadow:inset 2px 2px 3px rgba(255,255,255,.52),inset -3px -4px 6px rgba(0,0,0,.25),0 4px 7px rgba(0,0,0,.25); }
+  .die-number { position:absolute; top:8px; left:10px; color:var(--die-ink,#252525); font-size:29px; line-height:1; font-weight:900; -webkit-text-stroke:.35px rgba(0,0,0,.28); text-shadow:0 1px 0 rgba(255,255,255,.72),0 -1px 1px rgba(0,0,0,.45),1px 2px 2px rgba(0,0,0,.34); }
+  .die-letter { position:absolute; right:9px; bottom:5px; color:var(--die-ink,#252525); font-family:Arial,sans-serif; font-size:42px; line-height:1; font-weight:950; -webkit-text-stroke:.45px rgba(0,0,0,.30); text-shadow:0 1px 0 rgba(255,255,255,.78),0 -1px 1px rgba(0,0,0,.52),1px 2px 2px rgba(0,0,0,.40); }
+  .die-footer { min-height:24px; font-size:12px; font-weight:850; letter-spacing:.04em; }
+  .die-keep { color:#4ade80; } .die-reroll { color:#fbbf24; } .die-spacer { color:transparent; }
+  @media (max-width:700px) { #dice-row { gap:6px; } .die-card { height:210px; padding:9px 3px; } .die-face { width:min(100%,76px); } .die-number { font-size:22px; top:6px; left:7px; } .die-letter { font-size:32px; right:6px; bottom:4px; } .die-card-title { font-size:10px; } }
+</style>
+</head>
+<body>
+<div id="dice-row"></div>
+<script>
+(function () {
+  const layouts = {
+    1: [[2,2]],
+    2: [[1,3],[3,1]],
+    3: [[1,3],[2,2],[3,1]],
+    4: [[1,1],[1,3],[3,1],[3,3]],
+    5: [[1,1],[1,3],[2,2],[3,1],[3,3]],
+    6: [[1,1],[2,1],[3,1],[1,3],[2,3],[3,3]]
+  };
+  let latestArgs = null;
+  let kept = [];
+  const root = document.getElementById('dice-row');
+
+  function send(type, payload) {
+    window.parent.postMessage({isStreamlitMessage: true, type: type, ...payload}, '*');
+  }
+  function render(args) {
+    latestArgs = args;
+    const dice = args.dice || [];
+    const interactive = args.interactive !== false;
+    kept = Array.isArray(args.kept) ? args.kept.slice() : dice.map(() => false);
+    root.innerHTML = '';
+    dice.forEach((die, index) => {
+      const isKept = !!kept[index];
+      const card = document.createElement(interactive ? 'button' : 'div');
+      if (interactive) card.type = 'button';
+      card.className = 'die-card' + (isKept ? ' kept' : '') + (die.highlight ? ' reroll' : '');
+      if (interactive) card.setAttribute('aria-label', `Die ${die.number}, showing ${die.value}, ${isKept ? 'kept' : 'not kept'}. Toggle keep.`);
+      const title = document.createElement('div');
+      title.className = 'die-card-title';
+      title.textContent = `DIE ${die.number}`;
+      const face = document.createElement('div');
+      face.className = 'die-face';
+      face.style.setProperty('--die-bg', die.background || '#e8e8e8');
+      face.style.setProperty('--die-ink', die.ink || '#252525');
+      const number = document.createElement('span');
+      number.className = 'die-number';
+      number.textContent = die.value;
+      const letter = document.createElement('span');
+      letter.className = 'die-letter';
+      letter.textContent = die.letter;
+      face.append(number, letter);
+      const footer = document.createElement('div');
+      footer.className = 'die-footer';
+      if (die.action === 'REROLL') { footer.classList.add('die-reroll'); footer.textContent = '↻ REROLL'; }
+      else if (die.action === 'KEEP' || isKept) { footer.classList.add('die-keep'); footer.textContent = '✓ KEEP'; }
+      else { footer.classList.add('die-spacer'); footer.textContent = '—'; }
+      card.append(title, face, footer);
+      if (interactive) {
+        card.addEventListener('click', () => {
+          kept[index] = !kept[index];
+          render({...latestArgs, kept: kept});
+          send('streamlit:setComponentValue', {value: kept, dataType: 'json'});
+        });
+      }
+      root.appendChild(card);
+    });
+    send('streamlit:setFrameHeight', {height:260});
+  }
+
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (data && data.type === 'streamlit:render') render(data.args || {});
+  });
+  send('streamlit:componentReady', {apiVersion: 1});
+})();
+</script>
+</body>
+</html>
