@@ -211,7 +211,7 @@ def calculate_fixed_keep_probabilities(roll, keep_dice, selected_objectives, dic
 def calculate_first_roll_analysis(
     roll, dice_config, run_two_reroll_analysis, selected_objectives
 ):
-    """Analyze selected objectives individually, then calculate two-reroll odds for the top three."""
+    """Analyze every selected objective; skip two-reroll odds when one-reroll chance is zero."""
     rows = []
 
     for objective_id in selected_objectives:
@@ -244,7 +244,11 @@ def calculate_first_roll_analysis(
     ))
 
     if run_two_reroll_analysis:
-        for row in rows[:3]:
+        for row in rows:
+            # A second-reroll calculation adds no useful information when
+            # the objective has zero probability after the first reroll.
+            if row["one_reroll_probability"] <= 0:
+                continue
             two_reroll = find_best_two_reroll_strategy(
                 roll,
                 [row["objective_id"]],
@@ -654,12 +658,9 @@ if updated_kept is not None and list(updated_kept) != current_kept:
         st.session_state[f"manual_keep_{die_number}"] = bool(is_kept)
     st.rerun()
 
-st.button(
-    "🎲 Reroll unkept dice",
-    key="main_reroll_unkept",
-    type="primary",
-    on_click=randomize_unkept_dice,
-)
+if st.button("🎲 Reroll unkept dice", key="main_reroll_unkept", type="primary"):
+    randomize_unkept_dice()
+    st.rerun()
 
 keep_dice = [
     die_number
@@ -845,7 +846,7 @@ if result and analyzed_roll is not None:
                 "Best 1-reroll action": reroll_action(row["one_reroll_action"]),
             }
             if "two_reroll_probability" in row:
-                display_row["Best 2-reroll chance (top 3)"] = percent(
+                display_row["Best 2-reroll chance"] = percent(
                     row["two_reroll_probability"]
                 )
             first_roll_rows.append(display_row)
@@ -856,20 +857,15 @@ if result and analyzed_roll is not None:
             hide_index=True,
         )
 
-        top_three = [
-            row for row in first_roll_analysis
-            if "two_reroll_probability" in row
-        ]
-        if include_second_reroll and top_three:
+        if include_second_reroll:
             st.caption(
-                "Two-reroll probabilities are individually optimized for the "
-                "three objectives with the strongest one-reroll prospects. "
-                "The main recommendation below still optimizes the combined "
-                "chance of achieving at least one selected objective."
+                "The two-reroll chance is calculated for every objective with "
+                "a non-zero chance after the first reroll. Objectives with a "
+                "0% first-reroll chance are left blank."
             )
-        elif not include_second_reroll:
+        else:
             st.caption(
-                "Top-three two-reroll calculations were skipped because "
+                "Two-reroll calculations are skipped because "
                 "'Include second reroll analysis' is turned off."
             )
 
@@ -953,21 +949,6 @@ if result and analyzed_roll is not None:
                     "be added together."
                 )
 
-        # Show original ability text and research status beside the numeric analysis.
-        with st.expander("Selected ability effects and source notes", expanded=True):
-            detail_rows = []
-            for oid in selected_objectives:
-                objective = OBJECTIVES[oid]
-                detail_rows.append({
-                    "Objective": objective.get("name", oid),
-                    "Effect / damage": objective.get("effect", "General objective; no character-specific effect."),
-                    "Symbols": objective.get("symbols", ""),
-                    "Data status": objective.get("verification", "General objective"),
-                    "Source": card_objective_options.get(oid, {}).get("source_url", ""),
-                })
-            if detail_rows:
-                st.dataframe(pd.DataFrame(detail_rows), use_container_width=True, hide_index=True)
-
         # ------------------------------------------
         # ONE-REROLL DETAILS
         # ------------------------------------------
@@ -985,6 +966,14 @@ if result and analyzed_roll is not None:
         if is_two_reroll:
             st.divider()
             st.header("Second-reroll strategy")
+            st.caption(
+                "This summarises the best second action for each possible result "
+                "of your first reroll. **Chance of success** is the probability "
+                "of completing at least one selected objective after taking that "
+                "second action. **Share of first-reroll results** is how often "
+                "that action-and-probability combination occurs among all "
+                "possible first-reroll results; it is not a success probability."
+            )
 
             branches = result.get("branches", [])
 
@@ -1008,18 +997,18 @@ if result and analyzed_roll is not None:
                 for (second_action, final_probability), group in grouped.items():
                     summary_rows.append({
                         "Recommended second action": second_action,
-                        "First outcomes": len(group),
-                        "Chance after second reroll": f"{final_probability * 100:.2f}%",
-                        "Share of first outcomes": (
+                        "First-reroll results": len(group),
+                        "Chance of success after second action": f"{final_probability * 100:.2f}%",
+                        "Share of first-reroll results": (
                             f"{len(group) / len(branches) * 100:.2f}%"
                         ),
                     })
 
                 summary_rows.sort(
                     key=lambda row: (
-                        -row["First outcomes"],
+                        -row["First-reroll results"],
                         -float(
-                            row["Chance after second reroll"].rstrip("%")
+                            row["Chance of success after second action"].rstrip("%")
                         ),
                     )
                 )
@@ -1029,33 +1018,6 @@ if result and analyzed_roll is not None:
                     use_container_width=True,
                     hide_index=True,
                 )
-
-                with st.expander(
-                    f"Explore all {len(branches)} first-reroll outcomes"
-                ):
-                    branch_rows = []
-
-                    for branch in branches:
-                        second_dice = branch.get("dice_to_reroll", [])
-                        branch_rows.append({
-                            "First-reroll result": " · ".join(
-                                map(str, branch["roll"])
-                            ),
-                            "Second action": reroll_action(second_dice),
-                            "Dice and current values": reroll_details(
-                                second_dice,
-                                branch["roll"],
-                            ),
-                            "Chance after second reroll": percent(
-                                branch["probability"]
-                            ),
-                        })
-
-                    st.dataframe(
-                        pd.DataFrame(branch_rows),
-                        use_container_width=True,
-                        hide_index=True,
-                    )
 
                 with st.expander("Compare the five best first-reroll strategies"):
                     comparison = sorted(
@@ -1097,8 +1059,9 @@ if result and analyzed_roll is not None:
                     - **Objective outlook** shows the chance of achieving each
                       objective under the same recommended two-reroll strategy.
                     - **First action** is the best opening reroll.
-                    - **Second-reroll strategy** shows how the recommendation
-                      adapts after each possible first-reroll result.
+                    - **Second-reroll strategy** groups first-reroll results
+                      that lead to the same recommended second action and success
+                      probability. Its share column shows how common each group is.
                     - The objective list is currently selected manually.
                       Character profiles can be added later.
                     """
