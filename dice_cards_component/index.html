@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: transparent; font-family: Arial, sans-serif; }
+  #dice-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; width: 100%; }
+  .die-card {
+    width: 100%; height: 270px; border: 1px solid #d7d7d7; border-radius: 18px;
+    background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.12); padding: 15px 10px;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    color: #171717; cursor: pointer; user-select: none; transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .die-card:hover { border-color: #999; box-shadow: 0 5px 12px rgba(0,0,0,.16); transform: translateY(-1px); }
+  .die-card:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+  .die-card.kept { background: #16a34a; border: 2px solid #15803d; color: #fff; box-shadow: 0 4px 10px rgba(22,163,74,.22); }
+  .die-card-title { font-size: 15px; font-weight: 750; letter-spacing: .06em; }
+  .die-face {
+    width: 104px; height: 104px; padding: 12px; border-radius: 17px;
+    background: linear-gradient(145deg, #fff, #eee); box-shadow: inset 0 1px 2px rgba(0,0,0,.10), 0 3px 8px rgba(0,0,0,.18);
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 2px;
+  }
+  .pip-cell { display: flex; align-items: center; justify-content: center; }
+  .pip { width: 13px; height: 13px; border-radius: 50%; background: #171717; box-shadow: inset 0 1px 2px rgba(255,255,255,.18); }
+  .die-letter { font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1; font-weight: 700; font-style: italic; }
+  .die-keep { border-radius: 30px; background: rgba(0,0,0,.22); color: #fff; font-size: 16px; font-weight: 800; letter-spacing: .04em; padding: 7px 22px; }
+  .die-spacer { height: 32px; }
+  @media (max-width: 700px) { #dice-row { gap: 6px; } .die-card { height: 230px; padding: 10px 4px; } .die-face { width: 70px; height: 70px; padding: 8px; } .pip { width: 9px; height: 9px; } .die-letter { font-size: 36px; } .die-card-title { font-size: 11px; } }
+</style>
+</head>
+<body>
+<div id="dice-row"></div>
+<script>
+(function () {
+  const layouts = {
+    1: [[2,2]],
+    2: [[1,3],[3,1]],
+    3: [[1,3],[2,2],[3,1]],
+    4: [[1,1],[1,3],[3,1],[3,3]],
+    5: [[1,1],[1,3],[2,2],[3,1],[3,3]],
+    6: [[1,1],[2,1],[3,1],[1,3],[2,3],[3,3]]
+  };
+  let latestArgs = null;
+  let kept = [];
+  const root = document.getElementById('dice-row');
+
+  function send(type, payload) {
+    window.parent.postMessage({isStreamlitMessage: true, type: type, ...payload}, '*');
+  }
+  function render(args) {
+    latestArgs = args;
+    const dice = args.dice || [];
+    kept = Array.isArray(args.kept) ? args.kept.slice() : dice.map(() => false);
+    root.innerHTML = '';
+    dice.forEach((die, index) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'die-card' + (kept[index] ? ' kept' : '');
+      card.setAttribute('aria-label', `Die ${die.number}, showing ${die.value}, ${kept[index] ? 'kept' : 'not kept'}. Toggle keep.`);
+      const title = document.createElement('div');
+      title.className = 'die-card-title';
+      title.textContent = `DIE ${die.number}`;
+      const face = document.createElement('div');
+      face.className = 'die-face';
+      for (let row = 1; row <= 3; row++) {
+        for (let col = 1; col <= 3; col++) {
+          const cell = document.createElement('div');
+          cell.className = 'pip-cell';
+          if (layouts[die.value].some(([r,c]) => r === row && c === col)) {
+            const pip = document.createElement('span');
+            pip.className = 'pip';
+            cell.appendChild(pip);
+          }
+          face.appendChild(cell);
+        }
+      }
+      const letter = document.createElement('div');
+      letter.className = 'die-letter';
+      letter.textContent = die.letter;
+      const footer = document.createElement('div');
+      if (kept[index]) {
+        footer.className = 'die-keep';
+        footer.textContent = '✓ KEEP';
+      } else {
+        footer.className = 'die-spacer';
+      }
+      card.append(title, face, letter, footer);
+      card.addEventListener('click', () => {
+        kept[index] = !kept[index];
+        render({...latestArgs, kept: kept});
+        send('streamlit:setComponentValue', {value: kept, dataType: 'json'});
+      });
+      root.appendChild(card);
+    });
+    send('streamlit:setFrameHeight', {height: 286});
+  }
+
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (data && data.type === 'streamlit:render') render(data.args || {});
+  });
+  send('streamlit:componentReady', {apiVersion: 1});
+})();
+</script>
+</body>
+</html>

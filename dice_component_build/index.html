@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: transparent; font-family: Arial, sans-serif; }
+  #dice-row { display: grid; grid-template-columns: repeat(var(--columns, 5), minmax(0, 1fr)); gap: 12px; width: 100%; }
+  .die-card {
+    width: 100%; min-width: 0; height: 270px; padding: 13px 8px 10px;
+    border: 0; border-radius: 15px; background: transparent;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    color: #171717; cursor: pointer; user-select: none;
+  }
+  .die-card:hover .die-face { transform: translateY(-2px); filter: brightness(1.05); }
+  .die-card:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+  .die-card.kept .die-face { outline: 3px solid #22c55e; outline-offset: 2px; }
+  .die-card-title { min-height: 18px; font-size: 12px; font-weight: 800; letter-spacing: .07em; color: var(--text-color, #777); }
+  .die-face {
+    position: relative; width: min(100%, 112px); aspect-ratio: 1 / 1; flex: 0 0 auto;
+    border-radius: 18px; overflow: hidden; isolation: isolate;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.42), transparent 34%),
+      linear-gradient(325deg, rgba(0,0,0,.24), transparent 48%),
+      radial-gradient(ellipse at 28% 18%, rgba(255,255,255,.22), transparent 48%),
+      var(--die-bg, #e8e8e8);
+    border: 1px solid rgba(255,255,255,.48);
+    box-shadow:
+      inset 2px 2px 2px rgba(255,255,255,.65),
+      inset -3px -4px 7px rgba(0,0,0,.34),
+      inset 0 0 0 1px rgba(0,0,0,.12),
+      0 7px 12px rgba(0,0,0,.25);
+    transition: transform .12s ease, filter .12s ease;
+  }
+  .die-face::before {
+    content: ""; position: absolute; inset: 3px; border-radius: 14px; pointer-events: none;
+    border: 1px solid rgba(255,255,255,.22);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,.28), inset 0 -2px 4px rgba(0,0,0,.16);
+  }
+  .die-number, .die-letter {
+    position: absolute; z-index: 1; color: var(--die-ink, #222);
+    font-family: Georgia, "Times New Roman", serif; font-weight: 900; line-height: .9;
+    -webkit-text-stroke: .45px rgba(0,0,0,.28);
+    text-shadow:
+      0 1px 0 rgba(255,255,255,.78),
+      0 -1px 1px rgba(0,0,0,.52),
+      1px 2px 2px rgba(0,0,0,.48),
+      -1px -1px 1px rgba(255,255,255,.24);
+    filter: drop-shadow(0 2px 1px rgba(0,0,0,.22));
+  }
+  .die-number { top: 14px; left: 16px; font-size: clamp(33px, 3.2vw, 42px); letter-spacing: -.045em; }
+  .die-letter { right: 15px; bottom: 13px; font-size: clamp(42px, 4.1vw, 52px); font-style: normal; letter-spacing: -.055em; }
+  .die-keep { min-height: 25px; border-radius: 20px; padding: 5px 15px; background: #16803d; color: #fff; font-size: 11px; font-weight: 850; letter-spacing: .06em; }
+  .die-spacer { min-height: 25px; }
+  .key-mode { height: auto; padding: 0; cursor: default; }
+  .key-mode .die-face { width: 100%; max-width: 150px; }
+  .key-mode .die-number { top: 15px; left: 17px; font-size: clamp(35px, 4.2vw, 46px); }
+  .key-mode .die-letter { right: 16px; bottom: 14px; font-size: clamp(44px, 5.1vw, 58px); }
+  .key-mode .die-card-title, .key-mode .die-keep, .key-mode .die-spacer { display: none; }
+  @media (max-width: 700px) {
+    #dice-row { gap: 6px; }
+    .die-card { height: 230px; padding: 9px 3px; }
+    .die-face { width: min(100%, 88px); border-radius: 13px; }
+    .die-number { top: 11px; left: 12px; font-size: 30px; }
+    .die-letter { right: 11px; bottom: 10px; font-size: 38px; }
+    .key-mode { height: auto; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div id="dice-row"></div>
+<script>
+(function () {
+  let latestArgs = null;
+  let kept = [];
+  const root = document.getElementById('dice-row');
+
+  function send(type, payload) {
+    window.parent.postMessage({isStreamlitMessage: true, type: type, ...payload}, '*');
+  }
+  function render(args) {
+    latestArgs = args;
+    const dice = args.dice || [];
+    const columns = Number(args.columns) || (dice.length === 6 ? 3 : 5);
+    const keyMode = args.display_mode === 'key';
+    kept = Array.isArray(args.kept) ? args.kept.slice() : dice.map(() => false);
+    root.style.setProperty('--columns', columns);
+    root.innerHTML = '';
+
+    dice.forEach((die, index) => {
+      const card = document.createElement(keyMode ? 'div' : 'button');
+      if (!keyMode) card.type = 'button';
+      card.className = 'die-card' + (keyMode ? ' key-mode' : '') + (kept[index] ? ' kept' : '');
+      if (!keyMode) {
+        card.setAttribute('aria-label', `Die ${die.number}, showing ${die.value}, ${kept[index] ? 'kept' : 'not kept'}. Toggle keep.`);
+      }
+      card.style.setProperty('--die-bg', die.background || '#e8e8e8');
+      card.style.setProperty('--die-ink', die.ink || '#252525');
+
+      const title = document.createElement('div');
+      title.className = 'die-card-title';
+      title.textContent = `DIE ${die.number}`;
+
+      const face = document.createElement('div');
+      face.className = 'die-face';
+      const number = document.createElement('span');
+      number.className = 'die-number';
+      number.textContent = die.value;
+      const letter = document.createElement('span');
+      letter.className = 'die-letter';
+      letter.textContent = die.letter;
+      face.append(number, letter);
+
+      const footer = document.createElement('div');
+      if (kept[index] && !keyMode) {
+        footer.className = 'die-keep';
+        footer.textContent = '✓ KEEP';
+      } else {
+        footer.className = 'die-spacer';
+      }
+      card.append(title, face, footer);
+
+      if (!keyMode && args.interactive !== false) {
+        card.addEventListener('click', () => {
+          kept[index] = !kept[index];
+          render({...latestArgs, kept: kept});
+          send('streamlit:setComponentValue', {value: kept, dataType: 'json'});
+        });
+      }
+      root.appendChild(card);
+    });
+    const rows = Math.ceil(dice.length / columns);
+    const height = keyMode ? Math.max(105, rows * 150 + (rows - 1) * 12) : 286;
+    send('streamlit:setFrameHeight', {height: height});
+  }
+
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (data && data.type === 'streamlit:render') render(data.args || {});
+  });
+  send('streamlit:componentReady', {apiVersion: 1});
+})();
+</script>
+</body>
+</html>
