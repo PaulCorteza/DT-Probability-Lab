@@ -658,9 +658,12 @@ if updated_kept is not None and list(updated_kept) != current_kept:
         st.session_state[f"manual_keep_{die_number}"] = bool(is_kept)
     st.rerun()
 
-if st.button("🎲 Reroll unkept dice", key="main_reroll_unkept", type="primary"):
-    randomize_unkept_dice()
-    st.rerun()
+st.button(
+    "🎲 Reroll unkept dice",
+    key="main_reroll_unkept",
+    type="primary",
+    on_click=randomize_unkept_dice,
+)
 
 keep_dice = [
     die_number
