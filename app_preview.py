@@ -6,7 +6,7 @@ from textwrap import dedent
 # A small custom component renders the dice and reports clicks back to Python.
 dice_cards_component = components.declare_component(
     "dice_cards",
-    path=str(Path(__file__).parent / "dice_component_build"),
+    path=str(Path(__file__).parent / "dice_component_build_trial"),
 )
 import random
 import re
@@ -44,6 +44,52 @@ st.markdown(
     /* Responsive sidebar: allow Streamlit's native collapse/expand control. */
     [data-testid="stSidebar"] [data-testid="stSelectbox"] {
         min-width: 68px !important;
+    }
+
+    /* Full-height vertical launcher; red emphasis while the sidebar is closed. */
+    [data-testid="stSidebarCollapsedControl"] {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        height: 100vh !important;
+        z-index: 100000 !important;
+        display: flex !important;
+        align-items: stretch !important;
+    }
+    [data-testid="stSidebarCollapsedControl"] button {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        width: 46px !important;
+        min-width: 46px !important;
+        padding: 0.6rem 0.25rem !important;
+        border-radius: 0 8px 8px 0 !important;
+        background: #C93645 !important;
+        color: white !important;
+        border: 1px solid #C93645 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.22) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.7rem !important;
+    }
+    [data-testid="stSidebarCollapsedControl"] button svg {
+        flex-shrink: 0 !important;
+        transform: rotate(90deg) !important;
+    }
+    [data-testid="stSidebarCollapsedControl"] button::after {
+        content: "Hero/Ability Configuration";
+        writing-mode: vertical-rl !important;
+        transform: rotate(180deg) !important;
+        font-size: 0.78rem;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+        [data-testid="stSidebarCollapsedControl"] button {
+            min-width: 215px !important;
+            min-height: 42px !important;
+        }
     }
 
     /* On narrow screens, avoid forcing a fixed-width sidebar or columns. */
@@ -606,22 +652,7 @@ else:
 probability_engine_module.configure_objectives(active_objectives)
 selected_objectives = selected_basic_ids + selected_board_ids + selected_card_ids + selected_possible_ids
 
-st.sidebar.markdown("---")
-include_second_reroll = st.sidebar.checkbox(
-    "Include second reroll analysis",
-    value=True,
-    help=(
-        "When enabled, the calculator finds the best first reroll and then "
-        "optimises the second reroll separately for every possible first-roll outcome."
-    ),
-)
-
-if include_second_reroll:
-    st.sidebar.caption("Analysis: up to two rerolls, with an adaptive second action.")
-else:
-    st.sidebar.caption("Analysis: one reroll only. The second-reroll calculation is skipped.")
-
-analyze = st.sidebar.button(
+analyze = st.button(
     "Analyze strategy",
     type="primary",
     use_container_width=True,
@@ -749,6 +780,23 @@ else:
     st.info("Select at least one objective in the sidebar to see its probability.")
 
 
+
+st.markdown("---")
+st.subheader("Second Reroll Analysis")
+include_second_reroll = st.checkbox(
+    "Include second reroll analysis",
+    value=True,
+    help=(
+        "When enabled, the calculator finds the best first reroll and then "
+        "optimises the second reroll separately for every possible first-roll outcome."
+    ),
+)
+if include_second_reroll:
+    st.caption("Analysis: up to two rerolls, with an adaptive second action.")
+else:
+    st.caption("Analysis: one reroll only. The second-reroll calculation is skipped.")
+
+analyze = st.button("Analyze strategy", type="primary", use_container_width=True)
 
 # --------------------------------------------------
 # 4. RUN THE REQUESTED ANALYSIS
