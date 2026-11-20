@@ -46,50 +46,69 @@ st.markdown(
         min-width: 68px !important;
     }
 
-    /* Full-height vertical launcher; red emphasis while the sidebar is closed. */
-    [data-testid="stSidebarCollapsedControl"] {
+    /* Collapsed launcher: style the button itself, the element we know is visible. */
+    [data-testid="stExpandSidebarButton"] {
         position: fixed !important;
         left: 0 !important;
         top: 0 !important;
         height: 100vh !important;
+        width: 48px !important;
         z-index: 100000 !important;
-        display: flex !important;
-        align-items: stretch !important;
+        overflow: visible !important;
     }
-    [data-testid="stSidebarCollapsedControl"] button {
+    [data-testid="stExpandSidebarButton"] {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
         height: 100vh !important;
         min-height: 100vh !important;
-        width: 46px !important;
-        min-width: 46px !important;
-        padding: 0.6rem 0.25rem !important;
+        width: 48px !important;
+        min-width: 48px !important;
+        max-width: 48px !important;
+        padding: 0 !important;
         border-radius: 0 8px 8px 0 !important;
         background: #C93645 !important;
         color: white !important;
         border: 1px solid #C93645 !important;
         box-shadow: 0 2px 10px rgba(0,0,0,0.22) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 0.7rem !important;
+        display: block !important;
+        overflow: visible !important;
     }
-    [data-testid="stSidebarCollapsedControl"] button svg {
-        flex-shrink: 0 !important;
-        transform: rotate(90deg) !important;
-    }
-    [data-testid="stSidebarCollapsedControl"] button::after {
-        content: "Hero/Ability Configuration";
-        writing-mode: vertical-rl !important;
+    /* The native chevron remains visible, near the top of the rail. */
+    [data-testid="stExpandSidebarButton"] svg {
+        position: absolute !important;
+        top: 12px !important;
+        left: 12px !important;
+        width: 24px !important;
+        height: 24px !important;
         transform: rotate(180deg) !important;
-        font-size: 0.78rem;
-        font-weight: 700;
-        white-space: nowrap;
     }
-    @media (max-width: 768px) {
-        [data-testid="stSidebarCollapsedControl"] button {
-            min-width: 215px !important;
-            min-height: 42px !important;
-        }
+    /* Decorative icons are attached to the visible button, not its wrapper. */
+    [data-testid="stExpandSidebarButton"]::before {
+        content: "👤\\A🎲\\A🎲\\A🎯\\A✨" !important;
+        position: absolute !important;
+        top: 72px !important;
+        left: 0 !important;
+        width: 46px !important;
+        white-space: pre !important;
+        line-height: 2.8 !important;
+        font-size: 1.05rem !important;
+        text-align: center !important;
+        pointer-events: none !important;
+    }
+    [data-testid="stExpandSidebarButton"]::after {
+        content: "Dice/Ability Configuration" !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) rotate(180deg) !important;
+        writing-mode: vertical-rl !important;
+        color: white !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+        white-space: nowrap !important;
+        pointer-events: none !important;
     }
 
     /* On narrow screens, avoid forcing a fixed-width sidebar or columns. */
@@ -352,16 +371,16 @@ def show_dice_cards(current_roll, reroll_dice=None, show_actions=False, componen
 # 2. SIDEBAR: GAME SETUP
 # --------------------------------------------------
 
-st.sidebar.header("Game setup")
+st.sidebar.markdown("### 🦸 Hero")
 
 hero_names = list(HERO_PROFILES.keys())
-selected_hero = st.sidebar.selectbox("Character", hero_names, index=hero_names.index("Black Widow") if "Black Widow" in hero_names else 0)
+selected_hero = st.sidebar.selectbox("Select character", hero_names, index=hero_names.index("Black Widow") if "Black Widow" in hero_names else 0)
 hero_profile = HERO_PROFILES[selected_hero]
 active_dice_config = dict(hero_profile["dice_config"])
 
 # The source workbook has no six-face mapping for most heroes. Let users correct
 # the provisional mapping directly rather than silently treating it as verified.
-with st.sidebar.expander("Edit this character’s die-face mapping", expanded=hero_profile["mapping_status"].startswith("Provisional")):
+with st.sidebar.expander("🎲 Edit die-face mapping", expanded=hero_profile["mapping_status"].startswith("Provisional")):
     mapping_cols = st.columns(3)
     for face in range(1, 7):
         active_dice_config[face] = mapping_cols[(face - 1) % 3].selectbox(
@@ -461,7 +480,7 @@ probability_engine_module.configure_objectives(active_objectives)
 
 # Render the six physical die faces inside the actual left sidebar.
 with st.sidebar:
-    st.markdown("**Character dice faces**")
+    st.markdown("### 🎲 Character Die Faces")
     sidebar_visuals = hero_profile.get("dice_visuals", {})
     sidebar_backgrounds = sidebar_visuals.get("backgrounds", ["#E8E8E8"] * 6)
     sidebar_inks = sidebar_visuals.get("render_colors", {})
@@ -486,7 +505,7 @@ with st.sidebar:
         default=[False] * 6,
     )
 
-st.sidebar.markdown("**Enter your five dice**")
+st.sidebar.markdown("### 🎲 Enter 5 Dice")
 
 # Keep selections are stored separately from the dice values.
 # Initialize them before the randomizer and dice controls are created.
@@ -523,7 +542,7 @@ for index, column in enumerate(dice_columns):
     roll.append(value)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Character objectives**")
+st.sidebar.markdown("### 🎯 Character Objectives")
 
 # Basic attacks are three independent, optional scaling tiers. DiceSlayer
 # identifies the character's scaling attack; the tier requirements are 3/4/5
@@ -596,7 +615,7 @@ for ability in board_abilities:
 
 selected_card_ids = []
 if card_objective_options:
-    st.sidebar.markdown("**Additional abilities / upgrades**")
+    st.sidebar.markdown("### ✨ Additional Objectives")
     for oid, card in card_objective_options.items():
         if st.sidebar.checkbox(
             OBJECTIVES[oid]["name"],
@@ -651,13 +670,6 @@ else:
 # Re-register after optional objective additions and build final selection.
 probability_engine_module.configure_objectives(active_objectives)
 selected_objectives = selected_basic_ids + selected_board_ids + selected_card_ids + selected_possible_ids
-
-analyze = st.button(
-    "Analyze strategy",
-    type="primary",
-    use_container_width=True,
-)
-
 
 # --------------------------------------------------
 # 3. CURRENT ROLL
@@ -765,7 +777,7 @@ if selected_objectives:
     ]
     st.dataframe(
         pd.DataFrame(manual_rows),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
     st.metric(
@@ -796,7 +808,7 @@ if include_second_reroll:
 else:
     st.caption("Analysis: one reroll only. The second-reroll calculation is skipped.")
 
-analyze = st.button("Analyze strategy", type="primary", use_container_width=True)
+analyze = st.button("Analyze strategy", type="primary", width="stretch")
 
 # --------------------------------------------------
 # 4. RUN THE REQUESTED ANALYSIS
@@ -919,7 +931,7 @@ if result and analyzed_roll is not None:
 
         st.dataframe(
             pd.DataFrame(first_roll_rows),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -1077,7 +1089,7 @@ if result and analyzed_roll is not None:
 
                 st.dataframe(
                     pd.DataFrame(summary_rows),
-                    use_container_width=True,
+                    width="stretch",
                     hide_index=True,
                 )
 
@@ -1102,7 +1114,7 @@ if result and analyzed_roll is not None:
 
                     st.dataframe(
                         pd.DataFrame(comparison_rows),
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True,
                     )
 
