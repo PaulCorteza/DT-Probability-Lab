@@ -56,6 +56,11 @@ st.markdown(
         z-index: 100000 !important;
         overflow: visible !important;
     }
+
+    /* Reserve space for the collapsed rail so it never covers the app content. */
+    body:has([data-testid="stExpandSidebarButton"]) .block-container {
+        padding-left: calc(48px + 1rem) !important;
+    }
     [data-testid="stExpandSidebarButton"] {
         position: fixed !important;
         left: 0 !important;
