@@ -6,7 +6,7 @@ from textwrap import dedent
 # A small custom component renders the dice and reports clicks back to Python.
 dice_cards_component = components.declare_component(
     "dice_cards",
-    path=str(Path(__file__).parent / "dice_component_build"),
+    path=str(Path(__file__).parent / "dice_component_build_trial"),
 )
 import random
 import re
@@ -28,6 +28,7 @@ st.set_page_config(
     page_title="Dice Throne Strategy Lab",
     page_icon="🎲",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
 # Sign-in is temporarily disabled during development.
@@ -40,20 +41,28 @@ st.caption(
 st.markdown(
     """
     <style>
-    /* Give the sidebar a real minimum width so all five values remain visible. */
-    [data-testid="stSidebar"],
-    section[data-testid="stSidebar"] {
-        width: 440px !important;
-        min-width: 440px !important;
-        max-width: 440px !important;
-        flex: 0 0 440px !important;
-    }
-    [data-testid="stSidebar"] > div:first-child {
-        width: 440px !important;
-        min-width: 440px !important;
-    }
+    /* Responsive sidebar: allow Streamlit's native collapse/expand control. */
     [data-testid="stSidebar"] [data-testid="stSelectbox"] {
         min-width: 68px !important;
+    }
+
+    /* On narrow screens, avoid forcing a fixed-width sidebar or columns. */
+    @media (max-width: 768px) {
+        [data-testid="stSidebar"] {
+            min-width: 0 !important;
+            max-width: 100vw !important;
+        }
+        [data-testid="stSidebar"] > div:first-child {
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+        .block-container {
+            padding-left: 0.75rem !important;
+            padding-right: 0.75rem !important;
+        }
+        button, [role="button"] {
+            min-height: 44px !important;
+        }
     }
 
     /* Keep ordinary sidebar action buttons at normal height. */
@@ -85,29 +94,35 @@ def percent(value):
     return f"{value * 100:.2f}%"
 
 
-def reroll_action(dice):
-    """Turn die positions into a clear instruction."""
+def reroll_action(dice, roll):
+    """Describe rerolls by the face number, never by die position."""
     if not dice:
         return "Keep all five dice"
 
-    if len(dice) == 1:
-        return f"Reroll die {dice[0]}"
+    counts = Counter(roll[die_number - 1] for die_number in dice)
+    parts = []
+    for face, count in sorted(counts.items()):
+        if count == 1:
+            parts.append(f"a {face}")
+        elif count == 2:
+            parts.append(f"both {face}s")
+        else:
+            parts.append(f"all {count} {face}s")
 
-    return "Reroll dice " + ", ".join(map(str, dice[:-1])) + f" and {dice[-1]}"
+    if len(parts) == 1:
+        return "Reroll " + parts[0]
+    if len(parts) == 2:
+        return "Reroll " + " and ".join(parts)
+    return "Reroll " + ", ".join(parts[:-1]) + ", and " + parts[-1]
 
 
-def reroll_details(dice, roll):
-    """Show each recommended die with its current number and letter."""
-    if not dice:
-        return "Keep all five dice"
-
-    details = []
-    for die_number in dice:
-        value = roll[die_number - 1]
-        letter = letter_for(value)
-        details.append(f"Die {die_number} ({value} / {letter})")
-
-    return " · ".join(details)
+def branch_roll_for_action(branch, fallback_roll):
+    """Get the roll associated with a decision-tree branch when available."""
+    for key in ("roll", "first_roll_result", "resulting_roll", "dice"):
+        candidate = branch.get(key)
+        if isinstance(candidate, (list, tuple)) and len(candidate) == 5:
+            return candidate
+    return fallback_roll
 
 
 def describe_current_progress(roll, objective):
@@ -846,7 +861,7 @@ if result and analyzed_roll is not None:
                 "Current progress": row["progress"],
                 "Minimum dice to reroll": row["dice_to_reroll"],
                 "Best 1-reroll chance": percent(row["one_reroll_probability"]),
-                "Best 1-reroll action": reroll_action(row["one_reroll_action"]),
+                "Best 1-reroll action": reroll_action(row["one_reroll_action"], analyzed_roll),
             }
             if "two_reroll_probability" in row:
                 display_row["Best 2-reroll chance"] = percent(
@@ -896,18 +911,14 @@ if result and analyzed_roll is not None:
         )
         metric_middle.metric(
             "Recommended first action",
-            reroll_action(first_dice),
+            reroll_action(first_dice, analyzed_roll),
         )
         metric_right.metric(
             "Whiff chance · no objective",
             percent(1 - result["probability"]),
         )
 
-        st.markdown(f"**{reroll_action(first_dice)}**")
-        st.caption(
-            "Recommended dice and their current values: "
-            + reroll_details(first_dice, analyzed_roll)
-        )
+        st.markdown(f"**{reroll_action(first_dice, analyzed_roll)}**")
         show_dice_cards(analyzed_roll, first_dice, show_actions=True)
 
         # ------------------------------------------
@@ -992,7 +1003,7 @@ if result and analyzed_roll is not None:
                 grouped = {}
                 for branch in branches:
                     second_dice = branch.get("dice_to_reroll", [])
-                    second_action = reroll_action(second_dice)
+                    second_action = reroll_action(second_dice, branch_roll_for_action(branch, analyzed_roll))
                     key = (second_action, round(branch["probability"], 10))
                     grouped.setdefault(key, []).append(branch)
 
@@ -1032,7 +1043,7 @@ if result and analyzed_roll is not None:
                     comparison_rows = [
                         {
                             "First action": reroll_action(
-                                item["dice_to_reroll"]
+                                item["dice_to_reroll"], analyzed_roll
                             ),
                             "Final combined probability": percent(
                                 item["probability"]
