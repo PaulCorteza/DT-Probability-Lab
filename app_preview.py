@@ -6,7 +6,7 @@ from textwrap import dedent
 # A small custom component renders the dice and reports clicks back to Python.
 dice_cards_component = components.declare_component(
     "dice_cards",
-    path=str(Path(__file__).parent / "dice_component_build_trial"),
+    path=str(Path(__file__).parent / "dice_component_build"),
 )
 import random
 import re
