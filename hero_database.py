@@ -15,7 +15,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
                               'verification': 'Matches the user-approved Full Character Objective List v3 '
                                               'workbook.',
-                              'is_basic_attack': True,
+                              'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_2',
                               'code': 'BBB',
@@ -809,14 +809,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                '#544444',
                                                '#544444',
                                                '#544444'],
-                               'symbol_colors': {'A': '#F5D9E0',
-                                                 'B': '#F29727',
-                                                 'C': '#27BDF2',
-                                                 'D': '#F2F227'},
-                               'render_colors': {'A': '#F5D9E0',
-                                                 'B': '#F29727',
-                                                 'C': '#27BDF2',
-                                                 'D': '#F2F227'},
+                               'symbol_colors': {'A': '#F5D9E0', 'B': '#F29727', 'C': '#27BDF2', 'D': '#F2F227'},
+                               'render_colors': {'A': '#F5D9E0', 'B': '#F29727', 'C': '#27BDF2', 'D': '#F2F227'},
                                'labels': {'A': 'Pew', 'B': 'Knife', 'C': 'Joke/Mask'},
                                'palette_status': 'Read from the six numbered die-key references in the '
                                                  'supplied Excel workbook; hex values are visual estimates. '
@@ -824,9 +818,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                  'six-die base color because the reference showed more than '
                                                  'two background variants.'}},
  'Doctor Strange': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-                    'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                      'reference images; letters A–D assigned by first appearance of each '
-                                      'distinct face symbol.',
+                    'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                     'abilities': [{'id': 'hero_doctor_strange_1',
                                    'code': 'BBDD',
                                    'name': 'Augury',
@@ -912,13 +904,12 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                        'B': '#282828',
                                                        'C': '#F4C52C',
                                                        'D': '#F2F2F2'},
-                                     'labels': {'A': 'Mandala',
-                                                'B': 'Tome',
-                                                'C': 'Mantle/Amulet',
-                                                'D': 'Amulet'},
-                                     'palette_status': 'Four-symbol palette A–D transcribed from the '
-                                                       'numbered Hero Setup die-face key; symbol colour '
-                                                       'estimates are for UI rendering.'}},
+                                     'labels': {'A': 'Mandala', 'B': 'Tome', 'C': 'Mantle/Amulet'},
+                                     'palette_status': 'Read from the six numbered die-key references in the '
+                                                       'supplied Excel workbook; hex values are visual '
+                                                       'estimates. Dominant die-edge background selected as '
+                                                       'the uniform six-die base color because the reference '
+                                                       'showed more than two background variants.'}},
  'Druid': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_druid_1',
@@ -1162,10 +1153,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'labels': {'A': 'Pick', 'B': 'Forge', 'C': 'Anvil'},
                                   'palette_status': 'User-supplied leaflet image; colors are visual '
                                                     'estimates.'}},
- 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
-            'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                              'reference images; letters A–D assigned by first appearance of each distinct '
-                              'face symbol.',
+ 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_gambit_1',
                            'code': 'AAA',
                            'name': 'Bo Staff',
@@ -1242,21 +1231,14 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                              '#3C2C54',
                                              '#3C2C54',
                                              '#3C2C54'],
-                             'symbol_colors': {'A': '#4D26D1',
-                                               'B': '#E5293C',
-                                               'C': '#F6BE2C',
-                                               'D': '#F5A33B'},
-                             'render_colors': {'A': '#4D26D1',
-                                               'B': '#E5293C',
-                                               'C': '#F6BE2C',
-                                               'D': '#F5A33B'},
-                             'labels': {'A': 'Staff',
-                                        'B': 'Heart/Diamond',
-                                        'C': 'Spade/Club/Super Charge',
-                                        'D': 'Super Charge'},
-                             'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                               'Setup die-face key; symbol colour estimates are for UI '
-                                               'rendering.'}},
+                             'symbol_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
+                             'render_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
+                             'labels': {'A': 'Staff', 'B': 'Heart/Diamond', 'C': 'Spade/Club/Super Charge'},
+                             'palette_status': 'Read from the six numbered die-key references in the '
+                                               'supplied Excel workbook; hex values are visual estimates. '
+                                               'Dominant die-edge background selected as the uniform six-die '
+                                               'base color because the reference showed more than two '
+                                               'background variants.'}},
  'Gunslinger': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                 'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_gunslinger_1',
@@ -1426,10 +1408,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                         'labels': {'A': 'Axe', 'B': 'Horseshoe', 'C': 'Scare'},
                                         'palette_status': 'Leaflet-referenced; background and symbol colors '
                                                           'are visual estimates.'}},
- 'Huntress': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-              'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                'reference images; letters A–D assigned by first appearance of each distinct '
-                                'face symbol.',
+ 'Huntress': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_huntress_1',
                              'code': 'AAA',
                              'name': 'Animalistic',
@@ -1516,21 +1496,14 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                '#24542C',
                                                '#24542C',
                                                '#24542C'],
-                               'symbol_colors': {'A': '#CEF12B',
-                                                 'B': '#2AE9BA',
-                                                 'C': '#F29D13',
-                                                 'D': '#E99A25'},
-                               'render_colors': {'A': '#CEF12B',
-                                                 'B': '#2AE9BA',
-                                                 'C': '#F29D13',
-                                                 'D': '#E99A25'},
-                               'labels': {'A': 'Spear',
-                                          'B': 'Claw',
-                                          'C': 'Bonded Soul/Saber Tooth',
-                                          'D': 'Saber Tooth'},
-                               'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                                 'Setup die-face key; symbol colour estimates are for UI '
-                                                 'rendering.'}},
+                               'symbol_colors': {'A': '#CEF12B', 'B': '#2AE9BA', 'C': '#F29D13'},
+                               'render_colors': {'A': '#CEF12B', 'B': '#2AE9BA', 'C': '#F29D13'},
+                               'labels': {'A': 'Spear', 'B': 'Claw', 'C': 'Bonded Soul/Saber Tooth'},
+                               'palette_status': 'Read from the six numbered die-key references in the '
+                                                 'supplied Excel workbook; hex values are visual estimates. '
+                                                 'Dominant die-edge background selected as the uniform '
+                                                 'six-die base color because the reference showed more than '
+                                                 'two background variants.'}},
  'Iceman': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_iceman_1',
@@ -1710,10 +1683,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                   'Dominant die-edge background selected as the uniform '
                                                   'six-die base color because the reference showed more than '
                                                   'two background variants.'}},
- 'Krampus': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
-             'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                               'reference images; letters A–D assigned by first appearance of each distinct '
-                               'face symbol.',
+ 'Krampus': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_krampus_1',
                             'code': 'AAA',
                             'name': 'Swat',
@@ -1800,21 +1771,16 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                               '#94AC3C',
                                               '#94AC3C',
                                               '#94AC3C'],
-                              'symbol_colors': {'A': '#B9E92A',
-                                                'B': '#613310',
-                                                'C': '#F5F2D8',
-                                                'D': '#F2A51A'},
-                              'render_colors': {'A': '#B9E92A',
-                                                'B': '#613310',
-                                                'C': '#F5F2D8',
-                                                'D': '#F2A51A'},
-                              'labels': {'A': 'Switch', 'B': 'Jingle', 'C': 'Present/Horns', 'D': 'Horns'},
-                              'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                                'Setup die-face key; symbol colour estimates are for UI '
-                                                'rendering.'}},
- 'Loki': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-          'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied reference '
-                            'images; letters A–D assigned by first appearance of each distinct face symbol.',
+                              'symbol_colors': {'A': '#B9E92A', 'B': '#613310', 'C': '#F5F2D8'},
+                              'render_colors': {'A': '#B9E92A', 'B': '#613310', 'C': '#F5F2D8'},
+                              'labels': {'A': 'Switch', 'B': 'Jingle', 'C': 'Present/Horns'},
+                              'palette_status': 'Read from the six numbered die-key references in the '
+                                                'supplied Excel workbook; hex values are visual estimates. '
+                                                'Dominant die-edge background selected as the uniform '
+                                                'six-die base color because the reference showed more than '
+                                                'two background variants.'}},
+ 'Loki': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+          'mapping_status': 'User-confirmed face mapping (leaflet reference)',
           'abilities': [{'id': 'hero_loki_1',
                          'code': 'AAA',
                          'name': 'Mockery',
@@ -1896,15 +1862,16 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'is_basic_attack': False,
                          'is_ultimate': True}],
           'dice_visuals': {'backgrounds': ['#3C4434', '#3C4434', '#3C4434', '#3C4434', '#3C4434', '#3C4434'],
-                           'symbol_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929', 'D': '#E64B2E'},
-                           'render_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929', 'D': '#E64B2E'},
-                           'labels': {'A': 'Scepter', 'B': 'Illusion', 'C': 'Lies/Mischief', 'D': 'Mischief'},
-                           'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                             'Setup die-face key; symbol colour estimates are for UI '
-                                             'rendering.'}},
- 'Monk': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'C', 5: 'C', 6: 'D'},
-          'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied reference '
-                            'images; letters A–D assigned by first appearance of each distinct face symbol.',
+                           'symbol_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929'},
+                           'render_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929'},
+                           'labels': {'A': 'Scepter', 'B': 'Illusion', 'C': 'Lies/Mischief'},
+                           'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                             'Excel workbook; hex values are visual estimates. Dominant '
+                                             'die-edge background selected as the uniform six-die base color '
+                                             'because the reference showed more than two background '
+                                             'variants.'}},
+ 'Monk': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+          'mapping_status': 'User-confirmed face mapping (leaflet reference)',
           'abilities': [{'id': 'hero_monk_1',
                          'code': 'AAA',
                          'name': 'Fist Strike',
@@ -1986,12 +1953,14 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'is_basic_attack': False,
                          'is_ultimate': True}],
           'dice_visuals': {'backgrounds': ['#342C24', '#342C24', '#342C24', '#342C24', '#342C24', '#342C24'],
-                           'symbol_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663', 'D': '#D6A36A'},
-                           'render_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663', 'D': '#D6A36A'},
-                           'labels': {'A': 'Fist', 'B': 'Palm/Zen', 'C': 'Lotus', 'D': 'Lotus'},
-                           'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                             'Setup die-face key; symbol colour estimates are for UI '
-                                             'rendering.'}},
+                           'symbol_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663'},
+                           'render_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663'},
+                           'labels': {'A': 'Fist', 'B': 'Palm/Zen', 'C': 'Lotus'},
+                           'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                             'Excel workbook; hex values are visual estimates. Dominant '
+                                             'die-edge background selected as the uniform six-die base color '
+                                             'because the reference showed more than two background '
+                                             'variants.'}},
  'Moon Elf': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_moon_elf_1',
@@ -2369,10 +2338,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                               'die-edge background selected as the uniform six-die base '
                                               'color because the reference showed more than two background '
                                               'variants.'}},
- 'Paladin': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-             'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                               'reference images; letters A–D assigned by first appearance of each distinct '
-                               'face symbol.',
+ 'Paladin': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_paladin_1',
                             'code': 'BBBD',
                             'name': 'Retaliate',
@@ -2449,18 +2416,11 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                               '#1C1424',
                                               '#1C1424',
                                               '#1C1424'],
-                              'symbol_colors': {'A': '#4A4A4A',
-                                                'B': '#E9E9E9',
-                                                'C': '#F22727',
-                                                'D': '#E43D3D'},
-                              'render_colors': {'A': '#4A4A4A',
-                                                'B': '#E9E9E9',
-                                                'C': '#F22727',
-                                                'D': '#E43D3D'},
-                              'labels': {'A': 'Faith', 'B': 'Shield', 'C': 'Light', 'D': 'Prayer'},
-                              'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                                'Setup die-face key; symbol colour estimates are for UI '
-                                                'rendering.'}},
+                              'symbol_colors': {'A': '#4A4A4A', 'B': '#E9E9E9', 'C': '#F22727'},
+                              'render_colors': {'A': '#4A4A4A', 'B': '#E9E9E9', 'C': '#F22727'},
+                              'labels': {'A': 'Faith', 'B': 'Shield', 'C': 'Light'},
+                              'palette_status': 'Read from the six numbered die-key references in the '
+                                                'supplied Excel workbook; hex values are visual estimates.'}},
  'Pale Lady': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_pale_lady_1',
@@ -2547,10 +2507,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                   'Dominant die-edge background selected as the uniform '
                                                   'six-die base color because the reference showed more than '
                                                   'two background variants.'}},
- 'Psylocke': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-              'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                'reference images; letters A–D assigned by first appearance of each distinct '
-                                'face symbol.',
+ 'Psylocke': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_psylocke_1',
                              'code': 'AAA',
                              'name': 'Lunge',
@@ -2628,22 +2586,14 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                '#642C6C',
                                                '#642C6C',
                                                '#642C6C'],
-                               'symbol_colors': {'A': '#F8E9F5',
-                                                 'B': '#F02BC4',
-                                                 'C': '#F29027',
-                                                 'D': '#F0D6FF'},
-                               'render_colors': {'A': '#F8E9F5',
-                                                 'B': '#F02BC4',
-                                                 'C': '#F29027',
-                                                 'D': '#F0D6FF'},
-                               'labels': {'A': 'Blade', 'B': 'Psi', 'C': 'Mind/Starlight', 'D': 'Starlight'},
-                               'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                                 'Setup die-face key; symbol colour estimates are for UI '
-                                                 'rendering.'}},
- 'Pyromancer': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
-                'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                  'reference images; letters A–D assigned by first appearance of each '
-                                  'distinct face symbol.',
+                               'symbol_colors': {'A': '#F8E9F5', 'B': '#F02BC4', 'C': '#F29027'},
+                               'render_colors': {'A': '#F8E9F5', 'B': '#F02BC4', 'C': '#F29027'},
+                               'labels': {'A': 'Blade', 'B': 'Psi', 'C': 'Mind/Starlight'},
+                               'palette_status': 'Read from the six numbered die-key references in the '
+                                                 'supplied Excel workbook; hex values are visual '
+                                                 'estimates.'}},
+ 'Pyromancer': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_pyromancer_1',
                                'code': 'AAA',
                                'name': 'Fireball',
@@ -2732,21 +2682,14 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                  '#4C142C',
                                                  '#4C142C',
                                                  '#4C142C'],
-                                 'symbol_colors': {'A': '#FFC12E',
-                                                   'B': '#AD811C',
-                                                   'C': '#F1E5D8',
-                                                   'D': '#E65B28'},
-                                 'render_colors': {'A': '#FFC12E',
-                                                   'B': '#AD811C',
-                                                   'C': '#F1E5D8',
-                                                   'D': '#E65B28'},
-                                 'labels': {'A': 'Flame',
-                                            'B': 'Blaze',
-                                            'C': 'Fiery Soul/Meteor',
-                                            'D': 'Meteor'},
-                                 'palette_status': 'Four-symbol palette A–D transcribed from the numbered '
-                                                   'Hero Setup die-face key; symbol colour estimates are for '
-                                                   'UI rendering.'}},
+                                 'symbol_colors': {'A': '#FFC12E', 'B': '#AD811C', 'C': '#F1E5D8'},
+                                 'render_colors': {'A': '#FFC12E', 'B': '#AD811C', 'C': '#F1E5D8'},
+                                 'labels': {'A': 'Flame', 'B': 'Blaze', 'C': 'Fiery Soul/Meteor'},
+                                 'palette_status': 'Read from the six numbered die-key references in the '
+                                                   'supplied Excel workbook; hex values are visual '
+                                                   'estimates. Dominant die-edge background selected as the '
+                                                   'uniform six-die base color because the reference showed '
+                                                   'more than two background variants.'}},
  'Raveness': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_raveness_1',
@@ -3098,10 +3041,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                               'die-edge background selected as the uniform six-die base '
                                               'color because the reference showed more than two background '
                                               'variants.'}},
- 'Scarlet Witch': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
-                   'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                     'reference images; letters A–D assigned by first appearance of each '
-                                     'distinct face symbol.',
+ 'Scarlet Witch': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+                   'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                    'abilities': [{'id': 'hero_scarlet_witch_1',
                                   'code': 'AAA',
                                   'name': 'Hex Bolt',
@@ -3189,22 +3130,16 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                     '#2C2424',
                                                     '#2C2424',
                                                     '#2C2424'],
-                                    'symbol_colors': {'A': '#E92A9E',
-                                                      'B': '#F5CE2C',
-                                                      'C': '#F2F2F2',
-                                                      'D': '#E8E8E8'},
-                                    'render_colors': {'A': '#E92A9E',
-                                                      'B': '#F5CE2C',
-                                                      'C': '#F2F2F2',
-                                                      'D': '#E8E8E8'},
-                                    'labels': {'A': 'Warp', 'B': 'Chaos', 'C': 'Spell/Crown', 'D': 'Crown'},
-                                    'palette_status': 'Four-symbol palette A–D transcribed from the numbered '
-                                                      'Hero Setup die-face key; symbol colour estimates are '
-                                                      'for UI rendering.'}},
- 'Seraph': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
-            'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                              'reference images; letters A–D assigned by first appearance of each distinct '
-                              'face symbol.',
+                                    'symbol_colors': {'A': '#E92A9E', 'B': '#F5CE2C', 'C': '#F2F2F2'},
+                                    'render_colors': {'A': '#E92A9E', 'B': '#F5CE2C', 'C': '#F2F2F2'},
+                                    'labels': {'A': 'Warp', 'B': 'Chaos', 'C': 'Spell/Crown'},
+                                    'palette_status': 'Read from the six numbered die-key references in the '
+                                                      'supplied Excel workbook; hex values are visual '
+                                                      'estimates. Dominant die-edge background selected as '
+                                                      'the uniform six-die base color because the reference '
+                                                      'showed more than two background variants.'}},
+ 'Seraph': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_seraph_1',
                            'code': 'AAA',
                            'name': 'Holy Blade',
@@ -3291,22 +3226,13 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                              '#5C6444',
                                              '#5C6444',
                                              '#5C6444'],
-                             'symbol_colors': {'A': '#F8F8F8',
-                                               'B': '#B9B9B9',
-                                               'C': '#F2D427',
-                                               'D': '#E7B84B'},
-                             'render_colors': {'A': '#F8F8F8',
-                                               'B': '#B9B9B9',
-                                               'C': '#F2D427',
-                                               'D': '#E7B84B'},
-                             'labels': {'A': 'Heavenly', 'B': 'Wing', 'C': 'Light', 'D': 'Angelic Pendant'},
-                             'palette_status': 'Four-symbol palette A–D transcribed from the numbered Hero '
-                                               'Setup die-face key; symbol colour estimates are for UI '
-                                               'rendering.'}},
- 'Shadow Thief': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
-                  'mapping_status': 'Transcribed from the numbered Hero Setup die-face key in the supplied '
-                                    'reference images; letters A–D assigned by first appearance of each '
-                                    'distinct face symbol.',
+                             'symbol_colors': {'A': '#F8F8F8', 'B': '#B9B9B9', 'C': '#F2D427'},
+                             'render_colors': {'A': '#F8F8F8', 'B': '#B9B9B9', 'C': '#F2D427'},
+                             'labels': {'A': 'Heavenly', 'B': 'Wing', 'C': 'Light'},
+                             'palette_status': 'Read from the six numbered die-key references in the '
+                                               'supplied Excel workbook; hex values are visual estimates.'}},
+ 'Shadow Thief': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+                  'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                   'abilities': [{'id': 'hero_shadow_thief_1',
                                  'code': 'AAA',
                                  'name': 'Dagger Strike',
@@ -3383,18 +3309,12 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                                    '#543444',
                                                    '#543444',
                                                    '#543444'],
-                                   'symbol_colors': {'A': '#C42BF1',
-                                                     'B': '#F3B52C',
-                                                     'C': '#EAD9F1',
-                                                     'D': '#8E4BC4'},
-                                   'render_colors': {'A': '#C42BF1',
-                                                     'B': '#F3B52C',
-                                                     'C': '#EAD9F1',
-                                                     'D': '#8E4BC4'},
-                                   'labels': {'A': 'Dagger', 'B': 'Bag', 'C': 'Card/Shadow', 'D': 'Shadow'},
-                                   'palette_status': 'Four-symbol palette A–D transcribed from the numbered '
-                                                     'Hero Setup die-face key; symbol colour estimates are '
-                                                     'for UI rendering.'}},
+                                   'symbol_colors': {'A': '#C42BF1', 'B': '#F3B52C', 'C': '#EAD9F1'},
+                                   'render_colors': {'A': '#C42BF1', 'B': '#F3B52C', 'C': '#EAD9F1'},
+                                   'labels': {'A': 'Dagger', 'B': 'Bag', 'C': 'Card/Shadow'},
+                                   'palette_status': 'Read from the six numbered die-key references in the '
+                                                     'supplied Excel workbook; hex values are visual '
+                                                     'estimates.'}},
  'Spider-Man': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                 'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_spider_man_1',
@@ -5678,34 +5598,3 @@ CARD_OBJECTIVES = {'Deadpool': [{'name': 'Stabby, Stabby',
                 'notes': 'Included under the agreed fallback-ability rule. Original Academy die-face names '
                          'are retained in Dice requirement; Symbols uses the matching name in the existing '
                          'hero-board mapping where labels differ.'}]}
-
-
-# ---------------------------------------------------------------------------
-# USER-APPROVED HERO COLOR PALETTE
-# Updated with requested background adjustments.
-# ---------------------------------------------------------------------------
-
-HERO_COLOR_PALETTE = {'White': '#FFFFFF', 'Black': '#111111', 'Gray': '#808080', 'Light Gray': '#D3D3D3', 'Pink': '#FFC0CB', 'Magenta': '#FF00FF', 'Red': '#FF0000', 'Light Red': '#FF7F7F', 'Maroon': '#800000', 'Orange': '#FFA500', 'Gold': '#FFD700', 'Yellow': '#FFFF00', 'Lime': '#00FF00', 'Green': '#008000', 'Teal': '#008080', 'Turquoise': '#40E0D0', 'Cyan': '#00FFFF', 'Sky Blue': '#87CEEB', 'Light Blue': '#ADD8E6', 'Blue': '#0000FF', 'Dark Blue': '#00008B', 'Navy': '#000080', 'Purple': '#800080', 'Violet': '#8F00FF', 'Brown': '#A52A2A', 'Light Brown': '#D6B894', 'Dark Brown': '#352012', 'Burnt Sienna': '#E97451', 'Dark Green': '#003B00', 'Dark Gray': '#555555', 'Cream': '#FFFDD0', 'Dark Orange': '#FF8C00'}
-HERO_PALETTE_NAMES = {'Alchemist': {'A': 'White', 'B': 'Magenta', 'C': 'Turquoise', 'D': '', 'background': 'Purple'}, 'Artificer': {'A': 'Cyan', 'B': 'Orange', 'C': 'Yellow', 'D': '', 'background': 'Navy'}, 'Barbarian': {'A': 'White', 'B': 'Light Red', 'C': 'Yellow', 'D': '', 'background': 'Maroon'}, 'Black Panther': {'A': 'Yellow', 'B': 'Sky Blue', 'C': 'Magenta', 'D': '', 'background': 'Purple'}, 'Black Widow': {'A': 'Green', 'B': 'Cyan', 'C': 'Red', 'D': '', 'background': 'Navy'}, 'Captain Marvel': {'A': 'White', 'B': 'Dark Blue', 'C': 'Red', 'D': '', 'background': 'Gold'}, 'Cursed Pirate': {'A': 'Magenta', 'B': 'Gold', 'C': 'White', 'D': '', 'background': 'Purple'}, 'Cyclops': {'A': 'Yellow', 'B': 'Orange', 'C': 'Red', 'D': '', 'background': 'Blue'}, 'Deadpool': {'A': 'Red', 'B': 'Magenta', 'C': 'Sky Blue', 'D': 'White', 'background': 'Dark Brown'}, 'Doctor Strange': {'A': 'Green', 'B': 'White', 'C': 'Red', 'D': 'Gold', 'background': 'Dark Brown'}, 'Druid': {'A': 'Red', 'B': 'Maroon', 'C': 'Green', 'D': '', 'background': 'Yellow'}, 'Duelist': {'A': 'Blue', 'B': 'Navy', 'C': 'Purple', 'D': '', 'background': 'Light Blue'}, 'Forgemaster': {'A': 'White', 'B': 'Gold', 'C': 'Lime', 'D': '', 'background': 'Brown'}, 'Gambit': {'A': 'Purple', 'B': 'Red', 'C': 'Black', 'D': 'Gold', 'background': 'Cream'}, 'Gunslinger': {'A': 'Blue', 'B': 'Yellow', 'C': 'Orange', 'D': '', 'background': 'Brown'}, 'Headless Horseman': {'A': 'White', 'B': 'Sky Blue', 'C': 'Orange', 'D': '', 'background': 'Navy'}, 'Huntress': {'A': 'Lime', 'B': 'White', 'C': 'Turquoise', 'D': 'Orange', 'background': 'Dark Green'}, 'Iceman': {'A': 'White', 'B': 'Black', 'C': 'Gray', 'D': '', 'background': 'Light Blue'}, 'Jean Grey': {'A': 'Orange', 'B': 'Turquoise', 'C': 'Yellow', 'D': '', 'background': 'Maroon'}, 'Krampus': {'A': 'Brown', 'B': 'White', 'C': 'Violet', 'D': 'Black', 'background': 'Lime'}, 'Loki': {'A': 'White', 'B': 'Gold', 'C': 'Orange', 'D': 'Black', 'background': 'Dark Green'}, 'Monk': {'A': 'Brown', 'B': 'Green', 'C': 'Black', 'D': 'Red', 'background': 'Cream'}, 'Moon Elf': {'A': 'Light Blue', 'B': 'Gold', 'C': 'White', 'D': '', 'background': 'Navy'}, 'Mystic Brawler': {'A': 'Purple', 'B': 'Turquoise', 'C': 'Gold', 'D': '', 'background': 'Teal'}, 'Necromancer': {'A': 'Black', 'B': 'White', 'C': 'Lime', 'D': '', 'background': 'Green'}, 'Ninja': {'A': 'White', 'B': 'Turquoise', 'C': 'Lime', 'D': '', 'background': 'Dark Gray'}, 'Paladin': {'A': 'Gold', 'B': 'Blue', 'C': 'Red', 'D': 'White', 'background': 'Dark Gray'}, 'Pale Lady': {'A': 'Red', 'B': 'Blue', 'C': 'Black', 'D': '', 'background': 'Pink'}, 'Psylocke': {'A': 'White', 'B': 'Gold', 'C': 'Lime', 'D': 'Black', 'background': 'Pink'}, 'Pyromancer': {'A': 'Gold', 'B': 'Black', 'C': 'Red', 'D': 'White', 'background': 'Dark Orange'}, 'Raveness': {'A': 'Yellow', 'B': 'Green', 'C': 'Magenta', 'D': '', 'background': 'Black'}, 'Rogue': {'A': 'Yellow', 'B': 'Turquoise', 'C': 'White', 'D': '', 'background': 'Green'}, 'Samurai': {'A': 'Purple', 'B': 'Blue', 'C': 'Red', 'D': '', 'background': 'Yellow'}, 'Santa': {'A': 'Sky Blue', 'B': 'Gold', 'C': 'White', 'D': '', 'background': 'Maroon'}, 'Scarlet Witch': {'A': 'Magenta', 'B': 'Gold', 'C': 'Red', 'D': 'White', 'background': 'Maroon'}, 'Seraph': {'A': 'Green', 'B': 'Orange', 'C': 'Blue', 'D': 'Black', 'background': 'Light Gray'}, 'Shadow Thief': {'A': 'Green', 'B': 'Gold', 'C': 'Magenta', 'D': 'White', 'background': 'Purple'}, 'Spider-Man': {'A': 'Turquoise', 'B': 'White', 'C': 'Red', 'D': '', 'background': 'Navy'}, 'Storm': {'A': 'White', 'B': 'Sky Blue', 'C': 'Yellow', 'D': '', 'background': 'Navy'}, 'Sun Elf': {'A': 'Blue', 'B': 'Navy', 'C': 'Red', 'D': '', 'background': 'White'}, 'Tactician': {'A': 'White', 'B': 'Magenta', 'C': 'Purple', 'D': '', 'background': 'Navy'}, 'Thor': {'A': 'Sky Blue', 'B': 'Red', 'C': 'Yellow', 'D': '', 'background': 'Navy'}, 'Treant': {'A': 'Light Brown', 'B': 'Green', 'C': 'Orange', 'D': '', 'background': 'Dark Brown'}, 'Vampire Lord': {'A': 'White', 'B': 'Magenta', 'C': 'Red', 'D': '', 'background': 'Navy'}, 'Wolverine': {'A': 'Black', 'B': 'Red', 'C': 'Blue', 'D': '', 'background': 'Gold'}, 'Custom AAABBC': {'A': 'Black', 'B': 'Blue', 'C': 'Red', 'D': '', 'background': 'Light Gray'}, 'Custom AABBCD': {'A': 'Black', 'B': 'Blue', 'C': 'Red', 'D': 'Gold', 'background': 'Light Gray'}, 'Custom AAABCD': {'A': 'Black', 'B': 'Blue', 'C': 'Red', 'D': 'Gold', 'background': 'Light Gray'}}
-
-for _hero_name, _color_names in HERO_PALETTE_NAMES.items():
-    _profile = HERO_PROFILES[_hero_name]
-    _visuals = _profile.setdefault("dice_visuals", {})
-    _symbol_colors = {
-        _symbol: HERO_COLOR_PALETTE[_color_name]
-        for _symbol, _color_name in (
-            ("A", _color_names["A"]),
-            ("B", _color_names["B"]),
-            ("C", _color_names["C"]),
-            ("D", _color_names["D"]),
-        )
-        if _color_name
-    }
-    _background_hex = HERO_COLOR_PALETTE[_color_names["background"]]
-    _visuals["symbol_colors"] = dict(_symbol_colors)
-    _visuals["render_colors"] = dict(_symbol_colors)
-    _visuals["backgrounds"] = [_background_hex] * 6
-    _visuals["palette_names"] = dict(_color_names)
-    _visuals["palette_status"] = "User-specified recognizable color names; HEX values standardized in HERO_COLOR_PALETTE."
-
-del _hero_name, _color_names, _profile, _visuals, _symbol_colors, _background_hex
