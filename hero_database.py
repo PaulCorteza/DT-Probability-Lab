@@ -1153,7 +1153,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'labels': {'A': 'Pick', 'B': 'Forge', 'C': 'Anvil'},
                                   'palette_status': 'User-supplied leaflet image; colors are visual '
                                                     'estimates.'}},
- 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+ 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_gambit_1',
                            'code': 'AAA',
