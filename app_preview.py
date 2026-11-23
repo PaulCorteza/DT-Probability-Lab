@@ -157,7 +157,8 @@ def letter_for(number):
 
 
 def objective_label(objective_id):
-    return OBJECTIVES[objective_id]["name"]
+    registry = globals().get("active_objectives", OBJECTIVES)
+    return registry[objective_id]["name"]
 
 
 def percent(value):
@@ -233,7 +234,8 @@ def describe_current_progress(roll, objective):
 
 def minimum_dice_to_reroll(roll, objective_id, dice_config):
     """Find the fewest dice positions that must be rerolled to make an objective possible."""
-    objective = OBJECTIVES[objective_id]
+    registry = globals().get("active_objectives", OBJECTIVES)
+    objective = registry[objective_id]
 
     if evaluate_objective(roll, objective, dice_config):
         return 0
@@ -275,7 +277,7 @@ def calculate_fixed_keep_probabilities(roll, keep_dice, selected_objectives, dic
         achieved_any_objective = False
         for objective_id in selected_objectives:
             if evaluate_objective(
-                possible_roll, OBJECTIVES[objective_id], dice_config
+                possible_roll, globals().get("active_objectives", OBJECTIVES)[objective_id], dice_config
             ):
                 successes[objective_id] += 1
                 achieved_any_objective = True
@@ -299,8 +301,9 @@ def calculate_first_roll_analysis(
     """Analyze every selected objective; skip two-reroll odds when one-reroll chance is zero."""
     rows = []
 
+    registry = globals().get("active_objectives", OBJECTIVES)
     for objective_id in selected_objectives:
-        objective = OBJECTIVES[objective_id]
+        objective = registry[objective_id]
         one_reroll = calculate_best_one_reroll(
             roll,
             objective_id,
@@ -623,7 +626,7 @@ if card_objective_options:
     st.sidebar.markdown("### ✨ Additional Objectives")
     for oid, card in card_objective_options.items():
         if st.sidebar.checkbox(
-            OBJECTIVES[oid]["name"],
+            active_objectives[oid]["name"],
             value=False,
             key=f"card_ability_{selected_hero}_{oid}",
             help=card.get("effect", "No effect description available.")
@@ -736,11 +739,11 @@ keep_dice = [
 
 # Check whether the current five-die roll already satisfies any selected objective.
 current_hits = [
-    OBJECTIVES[objective_id]["name"]
+    active_objectives[objective_id]["name"]
     for objective_id in selected_objectives
     if evaluate_objective(
         roll,
-        OBJECTIVES[objective_id],
+        active_objectives[objective_id],
         DEFAULT_DICE_CONFIG,
     )
 ]
@@ -771,7 +774,7 @@ if selected_objectives:
     )
     manual_rows = [
         {
-            "Objective": OBJECTIVES[objective_id]["name"],
+            "Objective": active_objectives[objective_id]["name"],
             "Chance with this keep selection": percent(probability),
         }
         for objective_id, probability in sorted(

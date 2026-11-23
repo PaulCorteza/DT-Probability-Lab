@@ -13,18 +13,33 @@ from objectives import (
 # 1. PRE-COMPUTE ALL UNIQUE OBJECTIVE RESULTS
 # --------------------------------------------------
 
+# The app may supply a hero-specific objective registry at runtime.
+# Keep the engine's registry independent from the fixed objectives.py defaults.
 OBJECTIVE_IDS = tuple(OBJECTIVES.keys())
-OBJECTIVE_BITS = {objective_id: 1 << index for index, objective_id in enumerate(OBJECTIVE_IDS)}
+OBJECTIVE_BITS = {
+    objective_id: 1 << index
+    for index, objective_id in enumerate(OBJECTIVE_IDS)
+}
 
 
-def configure_objectives(objective_library):
-    """Replace the active objective set and invalidate the precomputed lookup."""
-    global OBJECTIVE_IDS, OBJECTIVE_BITS
-    OBJECTIVES.clear()
-    OBJECTIVES.update(objective_library)
+def configure_objectives(objective_registry):
+    """Configure the registry, clearing caches only when definitions change."""
+    global OBJECTIVES, OBJECTIVE_IDS, OBJECTIVE_BITS
+    new_registry = dict(objective_registry)
+
+    # Streamlit may call this repeatedly during the same rerun. Avoid destroying
+    # expensive caches when the registry has not actually changed.
+    if new_registry == OBJECTIVES:
+        return
+
+    OBJECTIVES = new_registry
     OBJECTIVE_IDS = tuple(OBJECTIVES.keys())
-    OBJECTIVE_BITS = {objective_id: 1 << index for index, objective_id in enumerate(OBJECTIVE_IDS)}
+    OBJECTIVE_BITS = {
+        objective_id: 1 << index
+        for index, objective_id in enumerate(OBJECTIVE_IDS)
+    }
     build_objective_lookup.cache_clear()
+    _cached_one_reroll_state.cache_clear()
 
 
 @lru_cache(maxsize=32)
@@ -73,9 +88,30 @@ def get_objective_mask(roll, lookup):
     return lookup[tuple(sorted(roll))]
 
 
+# Enumerate unordered reroll multisets with their permutation multiplicity.
+def _weighted_unordered_rolls(number_of_dice):
+    total = 6 ** number_of_dice
+    for values in combinations_with_replacement(range(1, 7), number_of_dice):
+        counts = [values.count(face) for face in range(1, 7)]
+        denominator = math.prod(math.factorial(count) for count in counts)
+        weight = math.factorial(number_of_dice) // denominator
+        yield values, weight, total
+
+import math
+
 # --------------------------------------------------
 # 2. OPTIMAL ONE-REROLL CALCULATION
 # --------------------------------------------------
+
+# Cache complete one-reroll evaluations across calls (canonical state + config).
+# This cache is deliberately bounded to avoid unbounded memory growth.
+@lru_cache(maxsize=50000)
+def _cached_one_reroll_state(roll_key, objective_ids, dice_config_key):
+    return _calculate_best_reroll(
+        list(roll_key), list(objective_ids), dict(dice_config_key),
+        include_objective_probabilities=True
+    )
+
 
 def _calculate_best_reroll(
     roll,
@@ -111,26 +147,11 @@ def _calculate_best_reroll(
             successful_outcomes = 0
             total_outcomes = 6 ** number_to_reroll
 
-            for new_values in product(
-                range(1, 7),
-                repeat=number_to_reroll
-            ):
-
-                new_roll = roll.copy()
-
-                for index, new_value in zip(
-                    dice_indices,
-                    new_values
-                ):
-                    new_roll[index] = new_value
-
-                result_mask = get_objective_mask(
-                    new_roll,
-                    lookup
-                )
-
+            for new_values, weight, _total in _weighted_unordered_rolls(number_to_reroll):
+                new_roll = sorted(roll[index] for index in range(len(roll)) if index not in dice_indices) + list(new_values)
+                result_mask = get_objective_mask(new_roll, lookup)
                 if result_mask & selected_mask:
-                    successful_outcomes += 1
+                    successful_outcomes += weight
 
             probability = successful_outcomes / total_outcomes
 
@@ -155,28 +176,12 @@ def _calculate_best_reroll(
 
         number_to_reroll = len(best_dice_indices)
 
-        for new_values in product(
-            range(1, 7),
-            repeat=number_to_reroll
-        ):
-
-            new_roll = roll.copy()
-
-            for index, new_value in zip(
-                best_dice_indices,
-                new_values
-            ):
-                new_roll[index] = new_value
-
-            result_mask = get_objective_mask(
-                new_roll,
-                lookup
-            )
-
+        for new_values, weight, _total in _weighted_unordered_rolls(number_to_reroll):
+            new_roll = sorted(roll[index] for index in range(len(roll)) if index not in best_dice_indices) + list(new_values)
+            result_mask = get_objective_mask(new_roll, lookup)
             for objective_id in objective_ids:
-
                 if result_mask & OBJECTIVE_BITS[objective_id]:
-                    objective_success_counts[objective_id] += 1
+                    objective_success_counts[objective_id] += weight
 
         objective_probabilities = {
             objective_id: count / best_total_outcomes
@@ -280,12 +285,9 @@ def analyze_second_reroll_options(
 
         if roll_key not in branch_cache:
 
-            branch_cache[roll_key] = (
-                calculate_best_one_reroll_for_objectives(
-                    new_roll,
-                    objective_ids,
-                    dice_config
-                )
+            branch_cache[roll_key] = _cached_one_reroll_state(
+                tuple(new_roll), tuple(objective_ids),
+                tuple(sorted(dice_config.items()))
             )
 
         second_result = branch_cache[roll_key]
@@ -377,12 +379,9 @@ def find_best_two_reroll_strategy(
 
                 if cache_key not in cache:
 
-                    second_result = (
-                        calculate_best_one_reroll_for_objectives(
-                            new_roll,
-                            objective_ids,
-                            dice_config
-                        )
+                    second_result = _cached_one_reroll_state(
+                        tuple(new_roll), tuple(objective_ids),
+                        tuple(sorted(dice_config.items()))
                     )
 
                     cache[cache_key] = {
