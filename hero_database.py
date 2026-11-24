@@ -1071,7 +1071,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'render_colors': {'A': '#FFF7E8', 'B': '#F6AB2C', 'C': '#CDF200'},
                                   'labels': {'A': 'Pick', 'B': 'Forge', 'C': 'Anvil'},
                                   'palette_status': 'User-supplied leaflet image; colors are visual estimates.'}},
- 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
+ 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_gambit_1',
                            'code': 'AAA',
@@ -1147,9 +1147,9 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'is_basic_attack': False,
                            'is_ultimate': False}],
             'dice_visuals': {'backgrounds': ['#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54'],
-                             'symbol_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
-                             'render_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
-                             'labels': {'A': 'Staff', 'B': 'Heart/Diamond', 'C': 'Spade/Club/Super Charge'},
+                             'symbol_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#000000', 'D': '#F6BE2C'},
+                             'render_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#000000', 'D': '#F6BE2C'},
+                             'labels': {'A': 'Staff', 'B': 'Heart/Diamond', 'C': 'Spade/Club', 'D': 'Super Charge'},
                              'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
                                                'workbook; hex values are visual estimates. Dominant die-edge '
                                                'background selected as the uniform six-die base color because the '
