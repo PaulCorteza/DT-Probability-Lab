@@ -13,9 +13,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage',
                               'symbols': 'Solution ×3 + Composition ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
-                              'is_basic_attack': False,
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
+                              'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_2',
                               'code': 'BBB',
@@ -23,8 +22,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'Heal 2 health; gain Potions',
                               'symbols': 'Composition ×3',
                               'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_3',
@@ -33,8 +31,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage; Potion effect',
                               'symbols': 'Solution + Crucible ×3',
                               'objective': {'type': 'combination', 'letters': {'A': 1, 'C': 3}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_4',
@@ -43,8 +40,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage; Potion effect',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_5',
@@ -53,8 +49,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 undefendable damage; Potions',
                               'symbols': 'Crucible ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_6',
@@ -63,8 +58,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage; Potion effect',
                               'symbols': 'Solution ×4 + Crucible',
                               'objective': {'type': 'combination', 'letters': {'A': 4, 'C': 1}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_alchemist_7',
@@ -73,22 +67,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '10 damage; Potion effect',
                               'symbols': 'Crucible ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
-                              'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#140C44',
-                                                '#140C44',
-                                                '#140C44',
-                                                '#140C44',
-                                                '#140C44',
-                                                '#140C44'],
+                              'is_ultimate': True},
+                             {'id': 'hero_alchemist_large_straight',
+                              'code': 'LARGE_STRAIGHT',
+                              'name': 'Diffusion',
+                              'effect': 'Large straight objective (5 consecutive die numbers)',
+                              'symbols': 'Any 5 consecutive die numbers',
+                              'objective': {'type': 'straight', 'dice_required': 5},
+                              'verification': 'Generic Large Straight objective added for universal coverage; '
+                                              'character-specific ability effect not verified.',
+                              'is_basic_attack': False,
+                              'is_ultimate': False}],
+               'dice_visuals': {'backgrounds': ['#140C44', '#140C44', '#140C44', '#140C44', '#140C44', '#140C44'],
                                 'symbol_colors': {'A': '#F5E9F4', 'B': '#E92AB9', 'C': '#00DFFF'},
                                 'render_colors': {'A': '#F5E9F4', 'B': '#E92AB9', 'C': '#00DFFF'},
                                 'labels': {'A': 'Solution', 'B': 'Composition', 'C': 'Crucible'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual '
-                                                  'estimates.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates.'}},
  'Artificer': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_artificer_1',
@@ -97,8 +94,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'About 4 damage; gains Synth',
                               'symbols': 'Wrench ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_2',
@@ -107,8 +103,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'Heal 2 health; gains Synth',
                               'symbols': 'Gear ×3 + Bolt',
                               'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_3',
@@ -117,8 +112,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage; gain 3 Synth',
                               'symbols': 'Wrench ×2 + Gear ×3',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_4',
@@ -127,8 +121,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage; Nanite',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_5',
@@ -137,8 +130,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 undefendable damage; activates Bots',
                               'symbols': 'Bolt ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_6',
@@ -147,8 +139,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '9 damage; Nanite; activates Bots',
                               'symbols': 'Any 5 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_artificer_7',
@@ -157,24 +148,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '10 damage; Nanite; activates Bots',
                               'symbols': 'Bolt ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#542454',
-                                                '#542454',
-                                                '#542454',
-                                                '#542454',
-                                                '#542454',
-                                                '#542454'],
+               'dice_visuals': {'backgrounds': ['#542454', '#542454', '#542454', '#542454', '#542454', '#542454'],
                                 'symbol_colors': {'A': '#E7E8EC', 'B': '#F4972C', 'C': '#F2F127'},
                                 'render_colors': {'A': '#E7E8EC', 'B': '#F4972C', 'C': '#F2F127'},
                                 'labels': {'A': 'Wrench', 'B': 'Gear', 'C': 'Bolt'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual estimates. '
-                                                  'Dominant die-edge background selected as the uniform '
-                                                  'six-die base color because the reference showed more than '
-                                                  'two background variants.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates. Dominant die-edge '
+                                                  'background selected as the uniform six-die base color because the '
+                                                  'reference showed more than two background variants.'}},
  'Barbarian': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_barbarian_1',
@@ -183,8 +167,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 damage',
                               'symbols': 'Sword ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_2',
@@ -193,8 +176,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 undefendable damage',
                               'symbols': 'Sword ×2 + Pow ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_3',
@@ -203,19 +185,16 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'Heal 4 health',
                               'symbols': 'Heart ×3',
                               'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_4',
                               'code': 'AAACC',
                               'name': 'Overpower',
-                              'effect': 'Damage equal to the total of 3 dice; inflict Concussion if the '
-                                        'total is 14+',
+                              'effect': 'Damage equal to the total of 3 dice; inflict Concussion if the total is 14+',
                               'symbols': 'Sword ×3 + Pow ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_5',
@@ -224,8 +203,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '9 damage',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_6',
@@ -234,8 +212,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 undefendable damage; inflict Stun',
                               'symbols': 'Pow ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_7',
@@ -244,8 +221,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '15 damage; you also take 4 damage',
                               'symbols': 'Any 5 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_barbarian_8',
@@ -254,21 +230,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '15 damage; inflict Stun',
                               'symbols': 'Pow ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#84443C',
-                                                '#84443C',
-                                                '#84443C',
-                                                '#84443C',
-                                                '#84443C',
-                                                '#84443C'],
+               'dice_visuals': {'backgrounds': ['#84443C', '#84443C', '#84443C', '#84443C', '#84443C', '#84443C'],
                                 'symbol_colors': {'A': '#D18A26', 'B': '#D1264E', 'C': '#F2E000'},
                                 'render_colors': {'A': '#D18A26', 'B': '#D1264E', 'C': '#F2E000'},
                                 'labels': {'A': 'Sword', 'B': 'Heart', 'C': 'Pow'},
-                                'palette_status': 'Symbol colors visually referenced; exact die-face '
-                                                  'background not yet confirmed.'}},
+                                'palette_status': 'Symbol colors visually referenced; exact die-face background not '
+                                                  'yet confirmed.'}},
  'Black Panther': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                    'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                    'abilities': [{'id': 'hero_black_panther_1',
@@ -277,8 +247,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '4 damage',
                                   'symbols': 'Slash ×3',
                                   'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': True,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_2',
@@ -287,19 +257,18 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '3 undefendable damage',
                                   'symbols': 'Slash ×2 + Panther ×2',
                                   'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_3',
                                   'code': 'BBB',
                                   'name': 'Heart-Shaped Herb',
-                                  'effect': 'Build Kinetic Energy/Vibranium Suit; damage not sufficiently '
-                                            'verified',
+                                  'effect': 'Build Kinetic Energy/Vibranium Suit; damage not sufficiently verified',
                                   'symbols': 'Vibranium ×3',
                                   'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_4',
@@ -308,8 +277,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '6 damage; gain Kinetic Energy',
                                   'symbols': 'Any 4 consecutive die numbers',
                                   'objective': {'type': 'straight', 'dice_required': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_5',
@@ -318,8 +287,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '4 undefendable damage; gain Kinetic Energy',
                                   'symbols': 'Panther ×4',
                                   'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_6',
@@ -328,8 +297,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': 'About 7 damage',
                                   'symbols': 'Slash ×2 + Vibranium ×2 + Panther',
                                   'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2, 'C': 1}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_black_panther_7',
@@ -338,24 +307,29 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '11 damage; gain Kinetic Energy/Vibranium Suit',
                                   'symbols': 'Panther ×5',
                                   'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
-                                  'is_ultimate': True}],
-                   'dice_visuals': {'backgrounds': ['#3C241C',
-                                                    '#3C241C',
-                                                    '#3C241C',
-                                                    '#3C241C',
-                                                    '#3C241C',
-                                                    '#3C241C'],
+                                  'is_ultimate': True},
+                                 {'id': 'hero_black_panther_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Meteoric Punch',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}],
+                   'dice_visuals': {'backgrounds': ['#3C241C', '#3C241C', '#3C241C', '#3C241C', '#3C241C', '#3C241C'],
                                     'symbol_colors': {'A': '#F62CBB', 'B': '#D7E1EA', 'C': '#2789F2'},
                                     'render_colors': {'A': '#F62CBB', 'B': '#D7E1EA', 'C': '#2789F2'},
                                     'labels': {'A': 'Slash', 'B': 'Vibranium', 'C': 'Panther'},
-                                    'palette_status': 'Read from the six numbered die-key references in the '
-                                                      'supplied Excel workbook; hex values are visual '
-                                                      'estimates. Dominant die-edge background selected as '
-                                                      'the uniform six-die base color because the reference '
-                                                      'showed more than two background variants.'}},
+                                    'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                      'Excel workbook; hex values are visual estimates. Dominant '
+                                                      'die-edge background selected as the uniform six-die base color '
+                                                      'because the reference showed more than two background '
+                                                      'variants.'}},
  'Black Widow': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'B', 6: 'C'},
                  'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                  'abilities': [{'id': 'hero_black_widow_1',
@@ -364,8 +338,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '5 damage',
                                 'symbols': 'Batons ×3',
                                 'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': True,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_2',
@@ -374,8 +347,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'Plant/advance Time Bomb; direct damage not verified',
                                 'symbols': 'Espionage ×2 + Batons + Widow',
                                 'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 1, 'C': 1}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_3',
@@ -384,8 +356,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 7 damage; scales with upgrades',
                                 'symbols': 'Espionage ×3 + Batons ×2',
                                 'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_4',
@@ -394,8 +365,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 6 damage; Time Bomb',
                                 'symbols': 'Any 4 consecutive die numbers',
                                 'objective': {'type': 'straight', 'dice_required': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_5',
@@ -404,8 +374,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 7 undefendable damage; scales with upgrades',
                                 'symbols': 'Widow ×4',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_6',
@@ -414,8 +383,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 9 damage; Time Bomb',
                                 'symbols': 'Any 5 consecutive die numbers',
                                 'objective': {'type': 'straight', 'dice_required': 5},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_black_widow_7',
@@ -424,24 +392,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '10 damage; Time Bomb',
                                 'symbols': 'Widow ×5',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': True}],
-                 'dice_visuals': {'backgrounds': ['#071713',
-                                                  '#071713',
-                                                  '#071713',
-                                                  '#071713',
-                                                  '#071713',
-                                                  '#071713'],
+                 'dice_visuals': {'backgrounds': ['#071713', '#071713', '#071713', '#071713', '#071713', '#071713'],
                                   'symbol_colors': {'A': '#AAE82A', 'B': '#2CDFF3', 'C': '#F0372B'},
                                   'render_colors': {'A': '#AAE82A', 'B': '#2CDFF3', 'C': '#F0372B'},
                                   'labels': {'A': 'Espionage', 'B': 'Batons', 'C': 'Widow'},
-                                  'palette_status': 'Read from the six numbered die-key references in the '
-                                                    'supplied Excel workbook; hex values are visual '
-                                                    'estimates. Dominant die-edge background selected as the '
-                                                    'uniform six-die base color because the reference showed '
-                                                    'more than two background variants.'}},
+                                  'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                    'Excel workbook; hex values are visual estimates. Dominant '
+                                                    'die-edge background selected as the uniform six-die base color '
+                                                    'because the reference showed more than two background variants.'}},
  'Captain Marvel': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                     'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                     'abilities': [{'id': 'hero_captain_marvel_1',
@@ -450,8 +411,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '5 damage',
                                    'symbols': 'Photon ×3',
                                    'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': True,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_2',
@@ -460,8 +421,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '4 pure damage',
                                    'symbols': 'Photon ×2 + Hala Star ×2',
                                    'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_3',
@@ -470,8 +431,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'About 8 damage',
                                    'symbols': 'Photon + Ascend ×3',
                                    'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 3}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_4',
@@ -480,8 +441,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'Damage equal to the total of 2 dice',
                                    'symbols': 'Photon ×2 + Ascend + Hala Star ×2',
                                    'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 1, 'C': 2}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_5',
@@ -490,8 +451,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '7 damage',
                                    'symbols': 'Any 4 consecutive die numbers',
                                    'objective': {'type': 'straight', 'dice_required': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_6',
@@ -500,8 +461,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '5 undefendable damage',
                                    'symbols': 'Hala Star ×4',
                                    'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_7',
@@ -510,8 +471,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '7 undefendable damage',
                                    'symbols': 'Any 5 consecutive die numbers',
                                    'objective': {'type': 'straight', 'dice_required': 5},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_captain_marvel_8',
@@ -520,24 +481,19 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '12 damage',
                                    'symbols': 'Hala Star ×5',
                                    'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': True}],
-                    'dice_visuals': {'backgrounds': ['#BC9C64',
-                                                     '#BC9C64',
-                                                     '#BC9C64',
-                                                     '#BC9C64',
-                                                     '#BC9C64',
-                                                     '#BC9C64'],
+                    'dice_visuals': {'backgrounds': ['#BC9C64', '#BC9C64', '#BC9C64', '#BC9C64', '#BC9C64', '#BC9C64'],
                                      'symbol_colors': {'A': '#FFC72E', 'B': '#266FD1', 'C': '#D94827'},
                                      'render_colors': {'A': '#FFC72E', 'B': '#266FD1', 'C': '#D94827'},
                                      'labels': {'A': 'Photon', 'B': 'Ascend', 'C': 'Hala Star'},
-                                     'palette_status': 'Read from the six numbered die-key references in the '
-                                                       'supplied Excel workbook; hex values are visual '
-                                                       'estimates. Dominant die-edge background selected as '
-                                                       'the uniform six-die base color because the reference '
-                                                       'showed more than two background variants.'}},
+                                     'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                       'Excel workbook; hex values are visual estimates. Dominant '
+                                                       'die-edge background selected as the uniform six-die base color '
+                                                       'because the reference showed more than two background '
+                                                       'variants.'}},
  'Cursed Pirate': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                    'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                    'abilities': [{'id': 'hero_cursed_pirate_1',
@@ -546,8 +502,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '5 damage; can apply Powder Keg',
                                   'symbols': 'Cutlass ×3',
                                   'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': True,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_2',
@@ -556,8 +512,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '2 damage per Cutlass among the 3 rolled dice; undefendable',
                                   'symbols': 'Booty ×3',
                                   'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_3',
@@ -566,8 +522,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '7 damage',
                                   'symbols': 'Cutlass + Booty ×2 + Skull',
                                   'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_4',
@@ -576,8 +532,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '7 damage; Powder Keg',
                                   'symbols': 'Any 4 consecutive die numbers',
                                   'objective': {'type': 'straight', 'dice_required': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_5',
@@ -586,8 +542,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '7 undefendable damage; Parlay',
                                   'symbols': 'Skull ×4',
                                   'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_6',
@@ -596,8 +552,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '7 undefendable damage',
                                   'symbols': 'Cutlass + Skull ×3',
                                   'objective': {'type': 'combination', 'letters': {'A': 1, 'C': 3}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_cursed_pirate_7',
@@ -606,24 +562,29 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '12 damage; Parlay and Powder Keg',
                                   'symbols': 'Skull ×5',
                                   'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
-                                  'is_ultimate': True}],
-                   'dice_visuals': {'backgrounds': ['#542C44',
-                                                    '#542C44',
-                                                    '#542C44',
-                                                    '#542C44',
-                                                    '#542C44',
-                                                    '#542C44'],
+                                  'is_ultimate': True},
+                                 {'id': 'hero_cursed_pirate_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Light the Fuse',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}],
+                   'dice_visuals': {'backgrounds': ['#542C44', '#542C44', '#542C44', '#542C44', '#542C44', '#542C44'],
                                     'symbol_colors': {'A': '#E6C6E9', 'B': '#EABB2A', 'C': '#8DAD1C'},
                                     'render_colors': {'A': '#E6C6E9', 'B': '#EABB2A', 'C': '#8DAD1C'},
                                     'labels': {'A': 'Cutlass', 'B': 'Booty', 'C': 'Skull'},
-                                    'palette_status': 'Read from the six numbered die-key references in the '
-                                                      'supplied Excel workbook; hex values are visual '
-                                                      'estimates. Dominant die-edge background selected as '
-                                                      'the uniform six-die base color because the reference '
-                                                      'showed more than two background variants.'}},
+                                    'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                      'Excel workbook; hex values are visual estimates. Dominant '
+                                                      'die-edge background selected as the uniform six-die base color '
+                                                      'because the reference showed more than two background '
+                                                      'variants.'}},
  'Cyclops': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_cyclops_1',
@@ -632,8 +593,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '4 damage',
                             'symbols': 'Fist ×3',
                             'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_2',
@@ -642,8 +602,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 damage; Focus Fire',
                             'symbols': 'Fist ×4 + Blast',
                             'objective': {'type': 'combination', 'letters': {'A': 4, 'C': 1}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_3',
@@ -652,8 +611,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 damage; gain Support',
                             'symbols': 'Fist + Pouch ×3',
                             'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 3}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_4',
@@ -662,8 +620,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; gain Battle Plan',
                             'symbols': 'Fist ×3 + Blast ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_5',
@@ -672,8 +629,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '6 damage; gain Battle Plan',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_6',
@@ -682,8 +638,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 undefendable damage; Focus Fire',
                             'symbols': 'Blast ×4',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_7',
@@ -692,8 +647,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; gain Battle Plan',
                             'symbols': 'Any 5 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_cyclops_8',
@@ -702,24 +656,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '11 damage; Focus Fire',
                             'symbols': 'Blast ×5',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#742C3C',
-                                              '#742C3C',
-                                              '#742C3C',
-                                              '#742C3C',
-                                              '#742C3C',
-                                              '#742C3C'],
+             'dice_visuals': {'backgrounds': ['#742C3C', '#742C3C', '#742C3C', '#742C3C', '#742C3C', '#742C3C'],
                               'symbol_colors': {'A': '#CFF12B', 'B': '#F4982C', 'C': '#FF2E37'},
                               'render_colors': {'A': '#CFF12B', 'B': '#F4982C', 'C': '#FF2E37'},
                               'labels': {'A': 'Fist', 'B': 'Pouch', 'C': 'Blast'},
-                              'palette_status': 'Read from the six numbered die-key references in the '
-                                                'supplied Excel workbook; hex values are visual estimates. '
-                                                'Dominant die-edge background selected as the uniform '
-                                                'six-die base color because the reference showed more than '
-                                                'two background variants.'}},
+                              'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                'workbook; hex values are visual estimates. Dominant die-edge '
+                                                'background selected as the uniform six-die base color because the '
+                                                'reference showed more than two background variants.'}},
  'Deadpool': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_deadpool_1',
@@ -728,8 +675,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '6 damage',
                              'symbols': 'Pew ×4',
                              'objective': {'type': 'letter', 'letter': 'A', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': True,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_2',
@@ -738,8 +684,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '4 pure damage',
                              'symbols': 'Joke ×3',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 3},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_3',
@@ -748,8 +693,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '3 undefendable damage',
                              'symbols': 'Pew ×2 + Knife ×2',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_4',
@@ -757,10 +701,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'name': 'Besmirched',
                              'effect': 'About 9 damage',
                              'symbols': 'One of each symbol',
-                             'objective': {'type': 'combination',
-                                           'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_5',
@@ -769,8 +711,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'About 8.5 damage',
                              'symbols': 'Any 4 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_6',
@@ -779,8 +720,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '6 undefendable damage',
                              'symbols': 'Mask ×4',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_7',
@@ -789,8 +729,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'About 8.5 damage',
                              'symbols': 'Any 5 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_deadpool_8',
@@ -799,24 +738,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': "14 damage; copies an opponent's positive status",
                              'symbols': 'Mask ×5',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': True}],
-              'dice_visuals': {'backgrounds': ['#544444',
-                                               '#544444',
-                                               '#544444',
-                                               '#544444',
-                                               '#544444',
-                                               '#544444'],
+              'dice_visuals': {'backgrounds': ['#544444', '#544444', '#544444', '#544444', '#544444', '#544444'],
                                'symbol_colors': {'A': '#F5D9E0', 'B': '#F29727', 'C': '#27BDF2', 'D': '#F2F227'},
                                'render_colors': {'A': '#F5D9E0', 'B': '#F29727', 'C': '#27BDF2', 'D': '#F2F227'},
                                'labels': {'A': 'Pew', 'B': 'Knife', 'C': 'Joke/Mask'},
-                               'palette_status': 'Read from the six numbered die-key references in the '
-                                                 'supplied Excel workbook; hex values are visual estimates. '
-                                                 'Dominant die-edge background selected as the uniform '
-                                                 'six-die base color because the reference showed more than '
-                                                 'two background variants.'}},
+                               'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                 'workbook; hex values are visual estimates. Dominant die-edge '
+                                                 'background selected as the uniform six-die base color because the '
+                                                 'reference showed more than two background variants.'}},
  'Doctor Strange': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
                     'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                     'abilities': [{'id': 'hero_doctor_strange_1',
@@ -825,8 +757,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '8 damage',
                                    'symbols': 'Tome ×2 + Amulet ×2',
                                    'objective': {'type': 'combination', 'letters': {'B': 2, 'D': 2}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': True,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_2',
@@ -835,8 +767,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'Prepare/gain spell resources; damage not sufficiently verified',
                                    'symbols': 'Tome ×4',
                                    'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_3',
@@ -844,10 +776,9 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'name': 'Astral Incursion',
                                    'effect': 'About 8 damage; Crimson Bands',
                                    'symbols': 'One of each symbol',
-                                   'objective': {'type': 'combination',
-                                                 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_4',
@@ -856,8 +787,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'About 9 damage; cast prepared spell',
                                    'symbols': 'Any 4 consecutive die numbers',
                                    'objective': {'type': 'straight', 'dice_required': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_5',
@@ -866,8 +797,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'About 11 undefendable damage; Crimson Bands',
                                    'symbols': 'Amulet ×4',
                                    'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_6',
@@ -876,8 +807,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '9 damage; Crimson Bands',
                                    'symbols': 'Mandala ×2 + Mantle ×2',
                                    'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_doctor_strange_7',
@@ -886,30 +817,29 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'About 16 damage; cast prepared spell',
                                    'symbols': 'Amulet ×5',
                                    'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
-                                   'is_ultimate': True}],
-                    'dice_visuals': {'backgrounds': ['#F8E010',
-                                                     '#F8E010',
-                                                     '#F8E010',
-                                                     '#F8E010',
-                                                     '#F8E010',
-                                                     '#F8E010'],
-                                     'symbol_colors': {'A': '#9DEB2A',
-                                                       'B': '#282828',
-                                                       'C': '#F4C52C',
-                                                       'D': '#F2F2F2'},
-                                     'render_colors': {'A': '#9DEB2A',
-                                                       'B': '#282828',
-                                                       'C': '#F4C52C',
-                                                       'D': '#F2F2F2'},
+                                   'is_ultimate': True},
+                                  {'id': 'hero_doctor_strange_large_straight',
+                                   'code': 'LARGE_STRAIGHT',
+                                   'name': 'Mystic Bolts',
+                                   'effect': 'Large straight objective (5 consecutive die numbers)',
+                                   'symbols': 'Any 5 consecutive die numbers',
+                                   'objective': {'type': 'straight', 'dice_required': 5},
+                                   'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                   'character-specific ability effect not verified.',
+                                   'is_basic_attack': False,
+                                   'is_ultimate': False}],
+                    'dice_visuals': {'backgrounds': ['#F8E010', '#F8E010', '#F8E010', '#F8E010', '#F8E010', '#F8E010'],
+                                     'symbol_colors': {'A': '#9DEB2A', 'B': '#282828', 'C': '#F4C52C', 'D': '#F2F2F2'},
+                                     'render_colors': {'A': '#9DEB2A', 'B': '#282828', 'C': '#F4C52C', 'D': '#F2F2F2'},
                                      'labels': {'A': 'Mandala', 'B': 'Tome', 'C': 'Mantle/Amulet'},
-                                     'palette_status': 'Read from the six numbered die-key references in the '
-                                                       'supplied Excel workbook; hex values are visual '
-                                                       'estimates. Dominant die-edge background selected as '
-                                                       'the uniform six-die base color because the reference '
-                                                       'showed more than two background variants.'}},
+                                     'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                       'Excel workbook; hex values are visual estimates. Dominant '
+                                                       'die-edge background selected as the uniform six-die base color '
+                                                       'because the reference showed more than two background '
+                                                       'variants.'}},
  'Druid': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_druid_1',
@@ -918,8 +848,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '4 damage; Wound',
                           'symbols': 'Claw ×3',
                           'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': True,
                           'is_ultimate': False},
                          {'id': 'hero_druid_2',
@@ -928,8 +857,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'Setup/shift ability; damage not sufficiently verified',
                           'symbols': 'Claw + Paw ×2 + Leaf',
                           'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_3',
@@ -938,8 +866,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '5 damage; healing/resource effect',
                           'symbols': 'Claw ×2 + Leaf ×2',
                           'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_4',
@@ -948,8 +875,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'Damage equal to the total of 2 dice',
                           'symbols': 'Paw ×4',
                           'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_5',
@@ -958,8 +884,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 damage; gain Shape Shift',
                           'symbols': 'Any 4 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_6',
@@ -968,8 +893,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 undefendable damage; Regenerate/Shape Shift',
                           'symbols': 'Leaf ×4',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_7',
@@ -978,8 +902,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '7 damage; gain Shape Shift',
                           'symbols': 'Any 5 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_druid_8',
@@ -988,16 +911,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '12 damage; Regenerate and Shape Shift',
                           'symbols': 'Leaf ×5',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': True}],
            'dice_visuals': {'backgrounds': ['#DDEB75', '#DDEB75', '#DDEB75', '#DDEB75', '#DDEB75', '#DDEB75'],
                             'symbol_colors': {'A': '#D13B26', 'B': '#850F0B', 'C': '#26D17E'},
                             'render_colors': {'A': '#D13B26', 'B': '#850F0B', 'C': '#26D17E'},
                             'labels': {'A': 'Claw', 'B': 'Paw', 'C': 'Nature'},
-                            'palette_status': 'User-supplied leaflet images; face 6 ability name confirmed '
-                                              'as Nature; colors are visual estimates.'}},
+                            'palette_status': 'User-supplied leaflet images; face 6 ability name confirmed as Nature; '
+                                              'colors are visual estimates.'}},
  'Duelist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_duelist_1',
@@ -1006,8 +928,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '4 damage',
                             'symbols': 'Blade ×3',
                             'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_2',
@@ -1016,8 +937,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '2 undefendable damage',
                             'symbols': 'Blade ×2 + Pierce ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_3',
@@ -1026,8 +946,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '6 damage; advances Footwork',
                             'symbols': 'Blade ×2 + Boot ×3',
                             'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_4',
@@ -1036,8 +955,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '7 damage',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_5',
@@ -1046,8 +964,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; Disarm',
                             'symbols': 'Pierce ×4',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_6',
@@ -1056,8 +973,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; Disarm',
                             'symbols': 'Boot ×3 + Pierce',
                             'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_duelist_7',
@@ -1066,16 +982,20 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '11 damage; Disarm',
                             'symbols': 'Pierce ×5',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
-                            'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#B9E7F2',
-                                              '#B9E7F2',
-                                              '#B9E7F2',
-                                              '#B9E7F2',
-                                              '#B9E7F2',
-                                              '#B9E7F2'],
+                            'is_ultimate': True},
+                           {'id': 'hero_duelist_large_straight',
+                            'code': 'LARGE_STRAIGHT',
+                            'name': 'Strike',
+                            'effect': 'Large straight objective (5 consecutive die numbers)',
+                            'symbols': 'Any 5 consecutive die numbers',
+                            'objective': {'type': 'straight', 'dice_required': 5},
+                            'verification': 'Generic Large Straight objective added for universal coverage; '
+                                            'character-specific ability effect not verified.',
+                            'is_basic_attack': False,
+                            'is_ultimate': False}],
+             'dice_visuals': {'backgrounds': ['#B9E7F2', '#B9E7F2', '#B9E7F2', '#B9E7F2', '#B9E7F2', '#B9E7F2'],
                               'symbol_colors': {'A': '#268BD1', 'B': '#155285', 'C': '#9526D1'},
                               'render_colors': {'A': '#268BD1', 'B': '#155285', 'C': '#9526D1'},
                               'labels': {'A': 'Blade', 'B': 'Boot', 'C': 'Pierce'},
@@ -1088,8 +1008,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '5 damage',
                                 'symbols': 'Pick ×3',
                                 'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': True,
                                 'is_ultimate': False},
                                {'id': 'hero_forgemaster_2',
@@ -1098,8 +1017,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'Damage equal to 1 die +5',
                                 'symbols': 'Forge ×4',
                                 'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_forgemaster_3',
@@ -1108,8 +1026,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '7 damage; armor/ore setup',
                                 'symbols': 'Any 4 consecutive die numbers',
                                 'objective': {'type': 'straight', 'dice_required': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_forgemaster_4',
@@ -1118,8 +1035,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '9 undefendable damage',
                                 'symbols': 'Anvil ×4',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_forgemaster_5',
@@ -1128,8 +1044,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '8 damage',
                                 'symbols': 'Pick + Forge + Anvil ×2',
                                 'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 2}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_forgemaster_6',
@@ -1138,22 +1053,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '14 damage',
                                 'symbols': 'Anvil ×5',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
-                                'is_ultimate': True}],
-                 'dice_visuals': {'backgrounds': ['#A94D2E',
-                                                  '#A94D2E',
-                                                  '#A94D2E',
-                                                  '#A94D2E',
-                                                  '#A94D2E',
-                                                  '#A94D2E'],
+                                'is_ultimate': True},
+                               {'id': 'hero_forgemaster_large_straight',
+                                'code': 'LARGE_STRAIGHT',
+                                'name': 'Armored Up',
+                                'effect': 'Large straight objective (5 consecutive die numbers)',
+                                'symbols': 'Any 5 consecutive die numbers',
+                                'objective': {'type': 'straight', 'dice_required': 5},
+                                'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                'character-specific ability effect not verified.',
+                                'is_basic_attack': False,
+                                'is_ultimate': False}],
+                 'dice_visuals': {'backgrounds': ['#A94D2E', '#A94D2E', '#A94D2E', '#A94D2E', '#A94D2E', '#A94D2E'],
                                   'symbol_colors': {'A': '#FFF7E8', 'B': '#F6AB2C', 'C': '#CDF200'},
                                   'render_colors': {'A': '#FFF7E8', 'B': '#F6AB2C', 'C': '#CDF200'},
                                   'labels': {'A': 'Pick', 'B': 'Forge', 'C': 'Anvil'},
-                                  'palette_status': 'User-supplied leaflet image; colors are visual '
-                                                    'estimates.'}},
- 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
+                                  'palette_status': 'User-supplied leaflet image; colors are visual estimates.'}},
+ 'Gambit': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_gambit_1',
                            'code': 'AAA',
@@ -1161,8 +1079,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 damage; Disruption',
                            'symbols': 'Staff ×3',
                            'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': True,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_2',
@@ -1171,8 +1088,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'Disruption; damage not sufficiently verified',
                            'symbols': 'Staff + Heart/Diamond ×2',
                            'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_3',
@@ -1181,8 +1097,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '2 undefendable damage; Dissolution',
                            'symbols': 'Staff ×2 + Spade/Club ×2',
                            'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_4',
@@ -1191,8 +1106,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '7 damage; charge Ace Cards',
                            'symbols': 'Any 4 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_5',
@@ -1201,8 +1115,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '6 undefendable damage; Disruption',
                            'symbols': 'Super Charge ×4',
                            'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_6',
@@ -1211,8 +1124,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '7 damage; Disruption',
                            'symbols': 'Staff ×2 + Heart/Diamond + Super Charge',
                            'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 1, 'D': 1}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_gambit_7',
@@ -1221,24 +1133,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '11 damage; Disruption',
                            'symbols': 'Super Charge ×5',
                            'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
-                           'is_ultimate': True}],
-            'dice_visuals': {'backgrounds': ['#3C2C54',
-                                             '#3C2C54',
-                                             '#3C2C54',
-                                             '#3C2C54',
-                                             '#3C2C54',
-                                             '#3C2C54'],
+                           'is_ultimate': True},
+                          {'id': 'hero_gambit_large_straight',
+                           'code': 'LARGE_STRAIGHT',
+                           'name': 'Card Shark',
+                           'effect': 'Large straight objective (5 consecutive die numbers)',
+                           'symbols': 'Any 5 consecutive die numbers',
+                           'objective': {'type': 'straight', 'dice_required': 5},
+                           'verification': 'Generic Large Straight objective added for universal coverage; '
+                                           'character-specific ability effect not verified.',
+                           'is_basic_attack': False,
+                           'is_ultimate': False}],
+            'dice_visuals': {'backgrounds': ['#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54', '#3C2C54'],
                              'symbol_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
                              'render_colors': {'A': '#4D26D1', 'B': '#E5293C', 'C': '#F6BE2C'},
                              'labels': {'A': 'Staff', 'B': 'Heart/Diamond', 'C': 'Spade/Club/Super Charge'},
-                             'palette_status': 'Read from the six numbered die-key references in the '
-                                               'supplied Excel workbook; hex values are visual estimates. '
-                                               'Dominant die-edge background selected as the uniform six-die '
-                                               'base color because the reference showed more than two '
-                                               'background variants.'}},
+                             'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                               'workbook; hex values are visual estimates. Dominant die-edge '
+                                               'background selected as the uniform six-die base color because the '
+                                               'reference showed more than two background variants.'}},
  'Gunslinger': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                 'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_gunslinger_1',
@@ -1247,8 +1162,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '3 damage',
                                'symbols': 'Bullet ×3',
                                'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': True,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_2',
@@ -1257,8 +1171,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '1 undefendable damage; Bounty',
                                'symbols': 'Bullet ×2 + Bullseye ×2',
                                'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_3',
@@ -1267,8 +1180,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '5 damage',
                                'symbols': 'Bullet ×2 + Dash ×3',
                                'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_4',
@@ -1277,8 +1189,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'About 6 damage',
                                'symbols': 'Any 4 consecutive die numbers',
                                'objective': {'type': 'straight', 'dice_required': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_5',
@@ -1287,8 +1198,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '6 undefendable damage; Knockdown',
                                'symbols': 'Bullseye ×4',
                                'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_6',
@@ -1297,8 +1207,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '7 damage',
                                'symbols': 'Any 5 consecutive die numbers',
                                'objective': {'type': 'straight', 'dice_required': 5},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_gunslinger_7',
@@ -1307,24 +1216,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '10 damage; Bounty and Knockdown',
                                'symbols': 'Bullseye ×5',
                                'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': True}],
-                'dice_visuals': {'backgrounds': ['#745C54',
-                                                 '#745C54',
-                                                 '#745C54',
-                                                 '#745C54',
-                                                 '#745C54',
-                                                 '#745C54'],
+                'dice_visuals': {'backgrounds': ['#745C54', '#745C54', '#745C54', '#745C54', '#745C54', '#745C54'],
                                  'symbol_colors': {'A': '#D5E4E9', 'B': '#F3CE2C', 'C': '#9FF227'},
                                  'render_colors': {'A': '#D5E4E9', 'B': '#F3CE2C', 'C': '#9FF227'},
                                  'labels': {'A': 'Bullet', 'B': 'Dash', 'C': 'Bullseye'},
-                                 'palette_status': 'Read from the six numbered die-key references in the '
-                                                   'supplied Excel workbook; hex values are visual '
-                                                   'estimates. Dominant die-edge background selected as the '
-                                                   'uniform six-die base color because the reference showed '
-                                                   'more than two background variants.'}},
+                                 'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                   'Excel workbook; hex values are visual estimates. Dominant die-edge '
+                                                   'background selected as the uniform six-die base color because the '
+                                                   'reference showed more than two background variants.'}},
  'Headless Horseman': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                        'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                        'abilities': [{'id': 'hero_headless_horseman_1',
@@ -1333,8 +1235,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '4 damage',
                                       'symbols': 'Axe ×3',
                                       'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': True,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_2',
@@ -1343,8 +1245,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '3 undefendable damage',
                                       'symbols': 'Horseshoe ×3 + Scare',
                                       'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_3',
@@ -1353,8 +1255,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '6 damage',
                                       'symbols': 'Axe ×3 + Horseshoe ×2',
                                       'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_4',
@@ -1363,8 +1265,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '7 damage',
                                       'symbols': 'Any 4 consecutive die numbers',
                                       'objective': {'type': 'straight', 'dice_required': 4},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_5',
@@ -1373,8 +1275,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '6 undefendable damage',
                                       'symbols': 'Scare ×4',
                                       'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_6',
@@ -1383,8 +1285,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': 'About 10 undefendable damage; scales with Dreadful',
                                       'symbols': 'Axe ×3 + Scare ×2',
                                       'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
                                       'is_ultimate': False},
                                      {'id': 'hero_headless_horseman_7',
@@ -1393,10 +1295,20 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                       'effect': '14 damage',
                                       'symbols': 'Scare ×5',
                                       'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                      'verification': 'Matches the user-approved Full Character Objective '
-                                                      'List v3 workbook.',
+                                      'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                      'workbook.',
                                       'is_basic_attack': False,
-                                      'is_ultimate': True}],
+                                      'is_ultimate': True},
+                                     {'id': 'hero_headless_horseman_large_straight',
+                                      'code': 'LARGE_STRAIGHT',
+                                      'name': 'Sow Despair',
+                                      'effect': 'Large straight objective (5 consecutive die numbers)',
+                                      'symbols': 'Any 5 consecutive die numbers',
+                                      'objective': {'type': 'straight', 'dice_required': 5},
+                                      'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                      'character-specific ability effect not verified.',
+                                      'is_basic_attack': False,
+                                      'is_ultimate': False}],
                        'dice_visuals': {'backgrounds': ['#14042C',
                                                         '#14042C',
                                                         '#14042C',
@@ -1406,8 +1318,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                         'symbol_colors': {'A': '#F8F7F1', 'B': '#19B9F2', 'C': '#F47A18'},
                                         'render_colors': {'A': '#F8F7F1', 'B': '#19B9F2', 'C': '#F47A18'},
                                         'labels': {'A': 'Axe', 'B': 'Horseshoe', 'C': 'Scare'},
-                                        'palette_status': 'Leaflet-referenced; background and symbol colors '
-                                                          'are visual estimates.'}},
+                                        'palette_status': 'Leaflet-referenced; background and symbol colors are visual '
+                                                          'estimates.'}},
  'Huntress': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_huntress_1',
@@ -1416,8 +1328,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '3 damage',
                              'symbols': 'Spear ×3',
                              'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': True,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_2',
@@ -1426,8 +1337,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'About 5 damage; can inflict Bleed',
                              'symbols': 'Claw ×3 + Saber Tooth',
                              'objective': {'type': 'combination', 'letters': {'B': 3, 'D': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_3',
@@ -1436,8 +1346,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'Heal Nyra 3 health',
                              'symbols': 'Bonded Soul ×2',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_4',
@@ -1446,8 +1355,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '2 undefendable damage',
                              'symbols': 'Spear ×3 + Bonded Soul',
                              'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_5',
@@ -1456,8 +1364,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '4 damage; Bleed',
                              'symbols': 'Any 4 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_6',
@@ -1466,8 +1373,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '5 damage; heal 1 health',
                              'symbols': 'Saber Tooth ×4',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_7',
@@ -1476,8 +1382,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '5 damage; heal 1 health',
                              'symbols': 'Spear ×2 + Claw ×2 + Bonded Soul',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2, 'C': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_huntress_8',
@@ -1486,24 +1391,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '12 damage; Bleed',
                              'symbols': 'Saber Tooth ×5',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
-                             'is_ultimate': True}],
-              'dice_visuals': {'backgrounds': ['#24542C',
-                                               '#24542C',
-                                               '#24542C',
-                                               '#24542C',
-                                               '#24542C',
-                                               '#24542C'],
+                             'is_ultimate': True},
+                            {'id': 'hero_huntress_large_straight',
+                             'code': 'LARGE_STRAIGHT',
+                             'name': 'Onslaught',
+                             'effect': 'Large straight objective (5 consecutive die numbers)',
+                             'symbols': 'Any 5 consecutive die numbers',
+                             'objective': {'type': 'straight', 'dice_required': 5},
+                             'verification': 'Generic Large Straight objective added for universal coverage; '
+                                             'character-specific ability effect not verified.',
+                             'is_basic_attack': False,
+                             'is_ultimate': False}],
+              'dice_visuals': {'backgrounds': ['#24542C', '#24542C', '#24542C', '#24542C', '#24542C', '#24542C'],
                                'symbol_colors': {'A': '#CEF12B', 'B': '#2AE9BA', 'C': '#F29D13'},
                                'render_colors': {'A': '#CEF12B', 'B': '#2AE9BA', 'C': '#F29D13'},
                                'labels': {'A': 'Spear', 'B': 'Claw', 'C': 'Bonded Soul/Saber Tooth'},
-                               'palette_status': 'Read from the six numbered die-key references in the '
-                                                 'supplied Excel workbook; hex values are visual estimates. '
-                                                 'Dominant die-edge background selected as the uniform '
-                                                 'six-die base color because the reference showed more than '
-                                                 'two background variants.'}},
+                               'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                 'workbook; hex values are visual estimates. Dominant die-edge '
+                                                 'background selected as the uniform six-die base color because the '
+                                                 'reference showed more than two background variants.'}},
  'Iceman': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_iceman_1',
@@ -1512,8 +1420,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 damage; builds Ice Shards',
                            'symbols': 'Ice ×3',
                            'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': True,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_2',
@@ -1522,8 +1429,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'About 2.5 undefendable damage; Dice Cube',
                            'symbols': 'Slide ×4',
                            'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_3',
@@ -1532,8 +1438,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 damage; scales with Ice Shards',
                            'symbols': 'Ice + Frost ×3',
                            'objective': {'type': 'combination', 'letters': {'A': 1, 'C': 3}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_4',
@@ -1542,8 +1447,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '7 damage',
                            'symbols': 'Ice ×2 + Slide ×3',
                            'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_5',
@@ -1552,8 +1456,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '6 damage; Dice Cube',
                            'symbols': 'Any 4 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_6',
@@ -1562,8 +1465,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 collateral damage to all opponents; Dice Cube',
                            'symbols': 'Frost ×4',
                            'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_7',
@@ -1572,8 +1474,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '8 damage',
                            'symbols': 'Any 5 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_iceman_8',
@@ -1582,21 +1483,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '13 damage; Dice Cube',
                            'symbols': 'Frost ×5',
                            'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': True}],
-            'dice_visuals': {'backgrounds': ['#24649C',
-                                             '#24649C',
-                                             '#24649C',
-                                             '#24649C',
-                                             '#24649C',
-                                             '#24649C'],
+            'dice_visuals': {'backgrounds': ['#24649C', '#24649C', '#24649C', '#24649C', '#24649C', '#24649C'],
                              'symbol_colors': {'A': '#F3FFFF', 'B': '#267FD1', 'C': '#27EEF2'},
                              'render_colors': {'A': '#F3FFFF', 'B': '#267FD1', 'C': '#27EEF2'},
                              'labels': {'A': 'Ice', 'B': 'Slide', 'C': 'Frost'},
-                             'palette_status': 'Read from the six numbered die-key references in the '
-                                               'supplied Excel workbook; hex values are visual estimates.'}},
+                             'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                               'workbook; hex values are visual estimates.'}},
  'Jean Grey': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_jean_grey_1',
@@ -1605,8 +1500,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 damage',
                               'symbols': 'Astral ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_2',
@@ -1615,8 +1509,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '2 pure damage',
                               'symbols': 'Control ×3',
                               'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_3',
@@ -1625,8 +1518,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 damage; Force Field',
                               'symbols': 'Astral + Control ×2 + Phoenix',
                               'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_4',
@@ -1635,8 +1527,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 undefendable damage in Dark Phoenix form',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_5',
@@ -1645,8 +1536,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 undefendable damage',
                               'symbols': 'Phoenix ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_6',
@@ -1655,8 +1545,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage',
                               'symbols': 'Astral ×3 + Phoenix ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_jean_grey_7',
@@ -1665,24 +1554,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '12 damage',
                               'symbols': 'Phoenix ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
-                              'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#7C3C44',
-                                                '#7C3C44',
-                                                '#7C3C44',
-                                                '#7C3C44',
-                                                '#7C3C44',
-                                                '#7C3C44'],
+                              'is_ultimate': True},
+                             {'id': 'hero_jean_grey_large_straight',
+                              'code': 'LARGE_STRAIGHT',
+                              'name': 'Astral Combat',
+                              'effect': 'Large straight objective (5 consecutive die numbers)',
+                              'symbols': 'Any 5 consecutive die numbers',
+                              'objective': {'type': 'straight', 'dice_required': 5},
+                              'verification': 'Generic Large Straight objective added for universal coverage; '
+                                              'character-specific ability effect not verified.',
+                              'is_basic_attack': False,
+                              'is_ultimate': False}],
+               'dice_visuals': {'backgrounds': ['#7C3C44', '#7C3C44', '#7C3C44', '#7C3C44', '#7C3C44', '#7C3C44'],
                                 'symbol_colors': {'A': '#FF972E', 'B': '#B7D8D7', 'C': '#F2F127'},
                                 'render_colors': {'A': '#FF972E', 'B': '#B7D8D7', 'C': '#F2F127'},
                                 'labels': {'A': 'Astral', 'B': 'Control', 'C': 'Phoenix'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual estimates. '
-                                                  'Dominant die-edge background selected as the uniform '
-                                                  'six-die base color because the reference showed more than '
-                                                  'two background variants.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates. Dominant die-edge '
+                                                  'background selected as the uniform six-die base color because the '
+                                                  'reference showed more than two background variants.'}},
  'Krampus': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_krampus_1',
@@ -1691,8 +1583,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 damage',
                             'symbols': 'Switch ×3',
                             'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_2',
@@ -1701,8 +1592,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'Gift/economy ability; direct damage not sufficiently verified',
                             'symbols': 'Present ×3',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_3',
@@ -1711,8 +1601,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'About 6 collateral damage to all opponents; Coal',
                             'symbols': 'Switch + Jingle + Present + Horns',
                             'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_4',
@@ -1721,8 +1610,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; Coal',
                             'symbols': 'Switch ×2 + Jingle ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_5',
@@ -1731,8 +1619,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '7 damage',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_6',
@@ -1741,8 +1628,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '9 damage; Coal',
                             'symbols': 'Horns ×4',
                             'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_7',
@@ -1751,8 +1637,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '9 damage',
                             'symbols': 'Any 5 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_krampus_8',
@@ -1761,24 +1646,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '10 damage',
                             'symbols': 'Horns ×5',
                             'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#94AC3C',
-                                              '#94AC3C',
-                                              '#94AC3C',
-                                              '#94AC3C',
-                                              '#94AC3C',
-                                              '#94AC3C'],
+             'dice_visuals': {'backgrounds': ['#94AC3C', '#94AC3C', '#94AC3C', '#94AC3C', '#94AC3C', '#94AC3C'],
                               'symbol_colors': {'A': '#B9E92A', 'B': '#613310', 'C': '#F5F2D8'},
                               'render_colors': {'A': '#B9E92A', 'B': '#613310', 'C': '#F5F2D8'},
                               'labels': {'A': 'Switch', 'B': 'Jingle', 'C': 'Present/Horns'},
-                              'palette_status': 'Read from the six numbered die-key references in the '
-                                                'supplied Excel workbook; hex values are visual estimates. '
-                                                'Dominant die-edge background selected as the uniform '
-                                                'six-die base color because the reference showed more than '
-                                                'two background variants.'}},
+                              'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                'workbook; hex values are visual estimates. Dominant die-edge '
+                                                'background selected as the uniform six-die base color because the '
+                                                'reference showed more than two background variants.'}},
  'Loki': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
           'mapping_status': 'User-confirmed face mapping (leaflet reference)',
           'abilities': [{'id': 'hero_loki_1',
@@ -1787,8 +1665,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '6 damage',
                          'symbols': 'Scepter ×3',
                          'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': True,
                          'is_ultimate': False},
                         {'id': 'hero_loki_2',
@@ -1797,8 +1674,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'Setup: gain Illusion/Bag of Tricks; direct damage not verified',
                          'symbols': 'Lies ×2',
                          'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_3',
@@ -1807,8 +1683,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '7 damage; Spellbound',
                          'symbols': 'Scepter ×2 + Illusion ×2',
                          'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_4',
@@ -1817,8 +1692,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 7 undefendable damage',
                          'symbols': 'One of each symbol',
                          'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_5',
@@ -1827,8 +1701,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '7 damage',
                          'symbols': 'Any 4 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_6',
@@ -1837,8 +1710,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '7 undefendable damage; Spellbound',
                          'symbols': 'Mischief ×4',
                          'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_7',
@@ -1847,8 +1719,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 9 damage',
                          'symbols': 'Any 5 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_loki_8',
@@ -1857,19 +1728,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '10 damage; Spellbound',
                          'symbols': 'Mischief ×5',
                          'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': True}],
           'dice_visuals': {'backgrounds': ['#3C4434', '#3C4434', '#3C4434', '#3C4434', '#3C4434', '#3C4434'],
                            'symbol_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929'},
                            'render_colors': {'A': '#B7F02B', 'B': '#F2B900', 'C': '#E52929'},
                            'labels': {'A': 'Scepter', 'B': 'Illusion', 'C': 'Lies/Mischief'},
-                           'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                             'Excel workbook; hex values are visual estimates. Dominant '
-                                             'die-edge background selected as the uniform six-die base color '
-                                             'because the reference showed more than two background '
-                                             'variants.'}},
+                           'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                             'workbook; hex values are visual estimates. Dominant die-edge background '
+                                             'selected as the uniform six-die base color because the reference showed '
+                                             'more than two background variants.'}},
  'Monk': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
           'mapping_status': 'User-confirmed face mapping (leaflet reference)',
           'abilities': [{'id': 'hero_monk_1',
@@ -1878,8 +1747,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '6 damage',
                          'symbols': 'Fist ×3',
                          'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': True,
                          'is_ultimate': False},
                         {'id': 'hero_monk_2',
@@ -1888,8 +1756,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'Build Chi; exact damage/effect not verified in source',
                          'symbols': 'Zen ×3',
                          'objective': {'type': 'letter', 'letter': 'C', 'minimum': 3},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_3',
@@ -1898,8 +1765,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 7 damage',
                          'symbols': 'Fist ×3 + Palm',
                          'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 1}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_4',
@@ -1908,8 +1774,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'Damage equal to the total of 3 dice; Knockdown (Chi can increase damage)',
                          'symbols': 'Palm ×3',
                          'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_5',
@@ -1918,8 +1783,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '6 damage',
                          'symbols': 'Any 4 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_6',
@@ -1928,8 +1792,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '5 undefendable damage',
                          'symbols': 'Lotus ×4',
                          'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_7',
@@ -1938,8 +1801,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '7 damage',
                          'symbols': 'Any 5 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_monk_8',
@@ -1948,19 +1810,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '10 damage; Knockdown',
                          'symbols': 'Lotus ×5',
                          'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': True}],
           'dice_visuals': {'backgrounds': ['#342C24', '#342C24', '#342C24', '#342C24', '#342C24', '#342C24'],
                            'symbol_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663'},
                            'render_colors': {'A': '#D17E26', 'B': '#E4E4D6', 'C': '#D12663'},
                            'labels': {'A': 'Fist', 'B': 'Palm/Zen', 'C': 'Lotus'},
-                           'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                             'Excel workbook; hex values are visual estimates. Dominant '
-                                             'die-edge background selected as the uniform six-die base color '
-                                             'because the reference showed more than two background '
-                                             'variants.'}},
+                           'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                             'workbook; hex values are visual estimates. Dominant die-edge background '
+                                             'selected as the uniform six-die base color because the reference showed '
+                                             'more than two background variants.'}},
  'Moon Elf': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_moon_elf_1',
@@ -1969,8 +1829,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '4 damage',
                              'symbols': 'Bow ×3',
                              'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': True,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_2',
@@ -1979,8 +1838,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '4 damage; Targeted',
                              'symbols': 'Bow ×3 + Moon ×2',
                              'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_3',
@@ -1989,8 +1847,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '7 damage; gain Evasive',
                              'symbols': 'Bow ×2 + Foot ×3',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_4',
@@ -1999,8 +1856,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'About 7 damage; Blind',
                              'symbols': 'Bow + Moon ×3',
                              'objective': {'type': 'combination', 'letters': {'A': 1, 'C': 3}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_5',
@@ -2009,8 +1865,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '7 damage; Entangle',
                              'symbols': 'Any 4 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_6',
@@ -2019,8 +1874,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '7 damage; Blind, Entangle and Targeted',
                              'symbols': 'Moon ×4',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_7',
@@ -2029,8 +1883,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '8 damage; Blind',
                              'symbols': 'Any 5 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_moon_elf_8',
@@ -2039,22 +1892,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '12 damage; Blind, Entangle and Targeted',
                              'symbols': 'Moon ×5',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': True}],
-              'dice_visuals': {'backgrounds': ['#34749C',
-                                               '#34749C',
-                                               '#34749C',
-                                               '#34749C',
-                                               '#34749C',
-                                               '#34749C'],
+              'dice_visuals': {'backgrounds': ['#34749C', '#34749C', '#34749C', '#34749C', '#34749C', '#34749C'],
                                'symbol_colors': {'A': '#EAF5FF', 'B': '#D9F227', 'C': '#111111'},
                                'render_colors': {'A': '#EAF5FF', 'B': '#D9F227', 'C': '#111111'},
                                'labels': {'A': 'Arrow', 'B': 'Foot', 'C': 'Moon'},
-                               'palette_status': 'Read from the six numbered die-key references in the '
-                                                 'supplied Excel workbook; hex values are visual '
-                                                 'estimates.'}},
+                               'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                 'workbook; hex values are visual estimates.'}},
  'Mystic Brawler': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                     'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                     'abilities': [{'id': 'hero_mystic_brawler_1',
@@ -2063,19 +1909,19 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': '5 damage with 4 Fists; 7 damage with 5 Fists',
                                    'symbols': 'Fist ×4 (or ×5 for 7 damage)',
                                    'objective': {'type': 'letter', 'letter': 'A', 'minimum': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': True,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_2',
                                    'code': 'AAAC',
                                    'name': 'Strong Arm',
-                                   'effect': 'After both players roll 1 die: if your result is equal/higher, '
-                                             'gain 1 Strength and deal 6; otherwise deal 7',
+                                   'effect': 'After both players roll 1 die: if your result is equal/higher, gain 1 '
+                                             'Strength and deal 6; otherwise deal 7',
                                    'symbols': 'Fist ×3 + Peak',
                                    'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 1}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_3',
@@ -2084,19 +1930,19 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'Heal 3 health; gain 2 Strengths',
                                    'symbols': 'Spirit ×3 + Peak',
                                    'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_4',
                                    'code': 'AAABB',
                                    'name': 'Tidal Blow',
-                                   'effect': 'Gain Strength of the Ocean; 6 damage, then roll 1 die: Fist +2 '
-                                             'damage, Spirit draw 1 card, Peak inflicts Concussion',
+                                   'effect': 'Gain Strength of the Ocean; 6 damage, then roll 1 die: Fist +2 damage, '
+                                             'Spirit draw 1 card, Peak inflicts Concussion',
                                    'symbols': 'Fist ×3 + Spirit ×2',
                                    'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_5',
@@ -2105,8 +1951,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'Gain 1 Strength, then deal 7 damage',
                                    'symbols': 'Any 4 consecutive die numbers',
                                    'objective': {'type': 'straight', 'dice_required': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_6',
@@ -2115,44 +1961,39 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                    'effect': 'Gain 2 Strengths; 7 undefendable damage',
                                    'symbols': 'Peak ×4',
                                    'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_7',
                                    'code': 'LARGE_STRAIGHT',
                                    'name': 'Tectonic Punch',
-                                   'effect': 'Choose: gain Mountain Strength, or spend one to add 3 damage; '
-                                             'then deal 10',
+                                   'effect': 'Choose: gain Mountain Strength, or spend one to add 3 damage; then deal '
+                                             '10',
                                    'symbols': 'Any 5 consecutive die numbers',
                                    'objective': {'type': 'straight', 'dice_required': 5},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': False},
                                   {'id': 'hero_mystic_brawler_8',
                                    'code': 'CCCCC',
                                    'name': 'Power of the Ancients! (Ultimate)',
-                                   'effect': 'Gain 2 Strengths and inflict Concussion, then deal 12; '
-                                             'alternate mode: gain 2 Strengths and deal 9 undefendable',
+                                   'effect': 'Gain 2 Strengths and inflict Concussion, then deal 12; alternate mode: '
+                                             'gain 2 Strengths and deal 9 undefendable',
                                    'symbols': 'Peak ×5',
                                    'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                   'verification': 'Matches the user-approved Full Character Objective List '
-                                                   'v3 workbook.',
+                                   'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                   'workbook.',
                                    'is_basic_attack': False,
                                    'is_ultimate': True}],
-                    'dice_visuals': {'backgrounds': ['#159D8C',
-                                                     '#159D8C',
-                                                     '#159D8C',
-                                                     '#159D8C',
-                                                     '#159D8C',
-                                                     '#159D8C'],
+                    'dice_visuals': {'backgrounds': ['#159D8C', '#159D8C', '#159D8C', '#159D8C', '#159D8C', '#159D8C'],
                                      'symbol_colors': {'A': '#AD2AE8', 'B': '#2CD8F3', 'C': '#F5C42C'},
                                      'render_colors': {'A': '#AD2AE8', 'B': '#2CD8F3', 'C': '#F5C42C'},
                                      'labels': {'A': 'Fist', 'B': 'Spirit', 'C': 'Peak'},
-                                     'palette_status': 'User-supplied leaflet image; one turquoise '
-                                                       'background across all six faces per user correction; '
-                                                       'colors are visual estimates.'}},
+                                     'palette_status': 'User-supplied leaflet image; one turquoise background across '
+                                                       'all six faces per user correction; colors are visual '
+                                                       'estimates.'}},
  'Necromancer': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                  'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                  'abilities': [{'id': 'hero_necromancer_1',
@@ -2161,8 +2002,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '3 damage',
                                 'symbols': 'Scythe ×3',
                                 'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': True,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_2',
@@ -2171,8 +2011,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'Summon/build Undead; direct damage not sufficiently verified',
                                 'symbols': 'Bones ×3',
                                 'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_3',
@@ -2181,8 +2020,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 2 damage; gain Corpse',
                                 'symbols': 'Scythe ×3 + Soul',
                                 'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 1}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_4',
@@ -2191,8 +2029,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': 'About 8 undefendable damage',
                                 'symbols': 'Scythe + Bones + Soul ×2',
                                 'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 2}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_5',
@@ -2201,8 +2038,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '5 damage; Decrep-ify',
                                 'symbols': 'Any 4 consecutive die numbers',
                                 'objective': {'type': 'straight', 'dice_required': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_6',
@@ -2211,8 +2047,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '4 undefendable damage',
                                 'symbols': 'Soul ×4',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_7',
@@ -2221,8 +2056,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '6 damage; activates Undead',
                                 'symbols': 'Bones ×3 + Soul ×2',
                                 'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 2}},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
                                 'is_ultimate': False},
                                {'id': 'hero_necromancer_8',
@@ -2231,22 +2065,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                 'effect': '10 damage; Decrep-ify',
                                 'symbols': 'Soul ×5',
                                 'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                'workbook.',
+                                'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                 'is_basic_attack': False,
-                                'is_ultimate': True}],
-                 'dice_visuals': {'backgrounds': ['#0C640C',
-                                                  '#0C640C',
-                                                  '#0C640C',
-                                                  '#0C640C',
-                                                  '#0C640C',
-                                                  '#0C640C'],
+                                'is_ultimate': True},
+                               {'id': 'hero_necromancer_large_straight',
+                                'code': 'LARGE_STRAIGHT',
+                                'name': 'Blight',
+                                'effect': 'Large straight objective (5 consecutive die numbers)',
+                                'symbols': 'Any 5 consecutive die numbers',
+                                'objective': {'type': 'straight', 'dice_required': 5},
+                                'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                'character-specific ability effect not verified.',
+                                'is_basic_attack': False,
+                                'is_ultimate': False}],
+                 'dice_visuals': {'backgrounds': ['#0C640C', '#0C640C', '#0C640C', '#0C640C', '#0C640C', '#0C640C'],
                                   'symbol_colors': {'A': '#D9D7E7', 'B': '#2880DD', 'C': '#F2B527'},
                                   'render_colors': {'A': '#D9D7E7', 'B': '#2880DD', 'C': '#F2B527'},
                                   'labels': {'A': 'Undead', 'B': 'Skeletal Mage', 'C': 'Bone Golem'},
-                                  'palette_status': 'Read from the six numbered die-key references in the '
-                                                    'supplied Excel workbook; hex values are visual '
-                                                    'estimates.'}},
+                                  'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                    'Excel workbook; hex values are visual estimates.'}},
  'Ninja': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_ninja_1',
@@ -2255,8 +2092,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '5 damage',
                           'symbols': 'Blade ×3',
                           'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': True,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_2',
@@ -2265,8 +2101,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'Damage equal to the total of 2 dice; undefendable',
                           'symbols': 'Shuriken ×4',
                           'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_3',
@@ -2275,8 +2110,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 6 damage; undefendable',
                           'symbols': 'Blade ×3 + Shuriken ×2',
                           'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_4',
@@ -2285,8 +2119,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 3 damage; Delayed Poison',
                           'symbols': 'Blade + Shuriken ×2 + Mask',
                           'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_5',
@@ -2295,8 +2128,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '5 damage; Delayed Poison',
                           'symbols': 'Any 4 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_6',
@@ -2305,8 +2137,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 undefendable damage; Delayed Poison',
                           'symbols': 'Mask ×4',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_7',
@@ -2315,8 +2146,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '8 damage',
                           'symbols': 'Any 5 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_ninja_8',
@@ -2325,19 +2155,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '10 damage; Delayed Poison',
                           'symbols': 'Mask ×5',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': True}],
            'dice_visuals': {'backgrounds': ['#44643C', '#44643C', '#44643C', '#44643C', '#44643C', '#44643C'],
                             'symbol_colors': {'A': '#E7E8DC', 'B': '#26D1BC', 'C': '#A2E629'},
                             'render_colors': {'A': '#E7E8DC', 'B': '#26D1BC', 'C': '#A2E629'},
                             'labels': {'A': 'Ninjato', 'B': 'Shuriken', 'C': 'Mask'},
-                            'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                              'Excel workbook; hex values are visual estimates. Dominant '
-                                              'die-edge background selected as the uniform six-die base '
-                                              'color because the reference showed more than two background '
-                                              'variants.'}},
+                            'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                              'workbook; hex values are visual estimates. Dominant die-edge background '
+                                              'selected as the uniform six-die base color because the reference showed '
+                                              'more than two background variants.'}},
  'Paladin': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_paladin_1',
@@ -2346,8 +2174,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'Builds effects/resources; damage not sufficiently verified',
                             'symbols': 'Helmet ×3 + Prayer',
                             'objective': {'type': 'combination', 'letters': {'B': 3, 'D': 1}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_2',
@@ -2356,8 +2183,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'About 7 damage',
                             'symbols': 'Sword ×3 + Helmet ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_3',
@@ -2366,8 +2192,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '3 undefendable damage',
                             'symbols': 'Sword ×3 + Prayer',
                             'objective': {'type': 'combination', 'letters': {'A': 3, 'D': 1}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_4',
@@ -2376,8 +2201,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '6 damage; heal 1 health',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_5',
@@ -2386,8 +2210,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage',
                             'symbols': 'Prayer ×4',
                             'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_6',
@@ -2396,8 +2219,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'Heal 1 health per Heart rolled',
                             'symbols': 'Heart ×2',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_paladin_7',
@@ -2406,21 +2228,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '10 damage; heal 5 health',
                             'symbols': 'Prayer ×5',
                             'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
-                            'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#1C1424',
-                                              '#1C1424',
-                                              '#1C1424',
-                                              '#1C1424',
-                                              '#1C1424',
-                                              '#1C1424'],
+                            'is_ultimate': True},
+                           {'id': 'hero_paladin_large_straight',
+                            'code': 'LARGE_STRAIGHT',
+                            'name': 'Holy Attack',
+                            'effect': 'Large straight objective (5 consecutive die numbers)',
+                            'symbols': 'Any 5 consecutive die numbers',
+                            'objective': {'type': 'straight', 'dice_required': 5},
+                            'verification': 'Generic Large Straight objective added for universal coverage; '
+                                            'character-specific ability effect not verified.',
+                            'is_basic_attack': False,
+                            'is_ultimate': False}],
+             'dice_visuals': {'backgrounds': ['#1C1424', '#1C1424', '#1C1424', '#1C1424', '#1C1424', '#1C1424'],
                               'symbol_colors': {'A': '#4A4A4A', 'B': '#E9E9E9', 'C': '#F22727'},
                               'render_colors': {'A': '#4A4A4A', 'B': '#E9E9E9', 'C': '#F22727'},
                               'labels': {'A': 'Faith', 'B': 'Shield', 'C': 'Light'},
-                              'palette_status': 'Read from the six numbered die-key references in the '
-                                                'supplied Excel workbook; hex values are visual estimates.'}},
+                              'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                'workbook; hex values are visual estimates.'}},
  'Pale Lady': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_pale_lady_1',
@@ -2429,8 +2255,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 damage; Bleed',
                               'symbols': 'Slash ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_2',
@@ -2439,8 +2264,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'Heal 3 health',
                               'symbols': 'Crescent ×3 + Full Moon',
                               'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_3',
@@ -2449,8 +2273,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage; Prey',
                               'symbols': 'Slash ×2 + Full Moon ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_4',
@@ -2459,8 +2282,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage; builds Moon Shards',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_5',
@@ -2469,8 +2291,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 undefendable damage; Prey',
                               'symbols': 'Full Moon ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_6',
@@ -2479,8 +2300,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'About 7 damage',
                               'symbols': 'Crescent ×4',
                               'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_pale_lady_7',
@@ -2489,24 +2309,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '13 damage; Prey and Bleed',
                               'symbols': 'Full Moon ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
-                              'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#14042C',
-                                                '#14042C',
-                                                '#14042C',
-                                                '#14042C',
-                                                '#14042C',
-                                                '#14042C'],
+                              'is_ultimate': True},
+                             {'id': 'hero_pale_lady_large_straight',
+                              'code': 'LARGE_STRAIGHT',
+                              'name': 'Conflicted',
+                              'effect': 'Large straight objective (5 consecutive die numbers)',
+                              'symbols': 'Any 5 consecutive die numbers',
+                              'objective': {'type': 'straight', 'dice_required': 5},
+                              'verification': 'Generic Large Straight objective added for universal coverage; '
+                                              'character-specific ability effect not verified.',
+                              'is_basic_attack': False,
+                              'is_ultimate': False}],
+               'dice_visuals': {'backgrounds': ['#14042C', '#14042C', '#14042C', '#14042C', '#14042C', '#14042C'],
                                 'symbol_colors': {'A': '#D12634', 'B': '#29E2B3', 'C': '#F2F2F2'},
                                 'render_colors': {'A': '#D12634', 'B': '#29E2B3', 'C': '#F2F2F2'},
                                 'labels': {'A': 'Slash', 'B': 'Crescent', 'C': 'Full Moon'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual estimates. '
-                                                  'Dominant die-edge background selected as the uniform '
-                                                  'six-die base color because the reference showed more than '
-                                                  'two background variants.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates. Dominant die-edge '
+                                                  'background selected as the uniform six-die base color because the '
+                                                  'reference showed more than two background variants.'}},
  'Psylocke': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_psylocke_1',
@@ -2515,8 +2338,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '5 damage',
                              'symbols': 'Blade ×3',
                              'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': True,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_2',
@@ -2524,10 +2346,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'name': 'Devise',
                              'effect': '3 undefendable damage',
                              'symbols': 'Blade + Psi + Mind + Starlight',
-                             'objective': {'type': 'combination',
-                                           'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_3',
@@ -2536,8 +2356,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '7 damage; Agility',
                              'symbols': 'Blade ×2 + Psi ×2 + Starlight',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2, 'D': 1}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_4',
@@ -2546,8 +2365,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '6 damage; Paralyze',
                              'symbols': 'Any 4 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_5',
@@ -2556,8 +2374,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '6 undefendable damage; Agility and Infiltration',
                              'symbols': 'Starlight ×4',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_6',
@@ -2566,8 +2383,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '6 damage; Paralyze',
                              'symbols': 'Blade ×2 + Mind ×2',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_psylocke_7',
@@ -2576,22 +2392,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '11 damage; Paralyze',
                              'symbols': 'Starlight ×5',
                              'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
-                             'is_ultimate': True}],
-              'dice_visuals': {'backgrounds': ['#642C6C',
-                                               '#642C6C',
-                                               '#642C6C',
-                                               '#642C6C',
-                                               '#642C6C',
-                                               '#642C6C'],
+                             'is_ultimate': True},
+                            {'id': 'hero_psylocke_large_straight',
+                             'code': 'LARGE_STRAIGHT',
+                             'name': 'Stealth',
+                             'effect': 'Large straight objective (5 consecutive die numbers)',
+                             'symbols': 'Any 5 consecutive die numbers',
+                             'objective': {'type': 'straight', 'dice_required': 5},
+                             'verification': 'Generic Large Straight objective added for universal coverage; '
+                                             'character-specific ability effect not verified.',
+                             'is_basic_attack': False,
+                             'is_ultimate': False}],
+              'dice_visuals': {'backgrounds': ['#642C6C', '#642C6C', '#642C6C', '#642C6C', '#642C6C', '#642C6C'],
                                'symbol_colors': {'A': '#F8E9F5', 'B': '#F02BC4', 'C': '#F29027'},
                                'render_colors': {'A': '#F8E9F5', 'B': '#F02BC4', 'C': '#F29027'},
                                'labels': {'A': 'Blade', 'B': 'Psi', 'C': 'Mind/Starlight'},
-                               'palette_status': 'Read from the six numbered die-key references in the '
-                                                 'supplied Excel workbook; hex values are visual '
-                                                 'estimates.'}},
+                               'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                 'workbook; hex values are visual estimates.'}},
  'Pyromancer': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                 'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_pyromancer_1',
@@ -2600,19 +2419,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '4 damage; builds Fire Mastery',
                                'symbols': 'Fire ×3',
                                'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': True,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_2',
                                'code': 'CC',
                                'name': 'Burning Soul',
-                               'effect': '1 collateral damage per Fiery Soul; hits all opponents and builds '
-                                         'Fire Mastery',
+                               'effect': '1 collateral damage per Fiery Soul; hits all opponents and builds Fire '
+                                         'Mastery',
                                'symbols': 'Fiery Soul ×2',
                                'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_3',
@@ -2621,8 +2438,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'About 8 damage; Burn and Knockdown',
                                'symbols': 'Fire ×3 + Meteor',
                                'objective': {'type': 'combination', 'letters': {'A': 3, 'D': 1}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_4',
@@ -2630,10 +2446,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'name': 'Combustion',
                                'effect': 'About 9 undefendable damage (scales with Fire Mastery)',
                                'symbols': 'Fire + Blaze + Fiery Soul + Meteor',
-                               'objective': {'type': 'combination',
-                                             'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_5',
@@ -2642,8 +2456,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'About 9 damage',
                                'symbols': 'Any 4 consecutive die numbers',
                                'objective': {'type': 'straight', 'dice_required': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_6',
@@ -2652,8 +2465,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'About 7 collateral damage to all opponents; Stun',
                                'symbols': 'Meteor ×4',
                                'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_7',
@@ -2662,8 +2474,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'About 12 damage (scales with Fire Mastery)',
                                'symbols': 'Any 5 consecutive die numbers',
                                'objective': {'type': 'straight', 'dice_required': 5},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_pyromancer_8',
@@ -2672,24 +2483,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '12 collateral damage to all opponents; Knockdown and Burn',
                                'symbols': 'Meteor ×5',
                                'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': True}],
-                'dice_visuals': {'backgrounds': ['#4C142C',
-                                                 '#4C142C',
-                                                 '#4C142C',
-                                                 '#4C142C',
-                                                 '#4C142C',
-                                                 '#4C142C'],
+                'dice_visuals': {'backgrounds': ['#4C142C', '#4C142C', '#4C142C', '#4C142C', '#4C142C', '#4C142C'],
                                  'symbol_colors': {'A': '#FFC12E', 'B': '#AD811C', 'C': '#F1E5D8'},
                                  'render_colors': {'A': '#FFC12E', 'B': '#AD811C', 'C': '#F1E5D8'},
                                  'labels': {'A': 'Flame', 'B': 'Blaze', 'C': 'Fiery Soul/Meteor'},
-                                 'palette_status': 'Read from the six numbered die-key references in the '
-                                                   'supplied Excel workbook; hex values are visual '
-                                                   'estimates. Dominant die-edge background selected as the '
-                                                   'uniform six-die base color because the reference showed '
-                                                   'more than two background variants.'}},
+                                 'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                   'Excel workbook; hex values are visual estimates. Dominant die-edge '
+                                                   'background selected as the uniform six-die base color because the '
+                                                   'reference showed more than two background variants.'}},
  'Raveness': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
               'mapping_status': 'User-confirmed face mapping (leaflet reference)',
               'abilities': [{'id': 'hero_raveness_1',
@@ -2698,8 +2502,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '5 damage',
                              'symbols': 'Talon ×3',
                              'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': True,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_2',
@@ -2708,8 +2511,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'Activates/advances Nevermore; damage not sufficiently verified',
                              'symbols': 'Wing ×4',
                              'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_3',
@@ -2718,8 +2520,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': 'About 7 damage',
                              'symbols': 'Talon ×2 + Wing ×3',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_4',
@@ -2728,8 +2529,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '3 undefendable damage',
                              'symbols': 'Talon ×2 + Raven Eye ×2',
                              'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_5',
@@ -2738,8 +2538,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '8 damage',
                              'symbols': 'Any 4 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_6',
@@ -2748,8 +2547,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '7 undefendable damage',
                              'symbols': 'Raven Eye ×4',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_7',
@@ -2758,8 +2556,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '9 damage',
                              'symbols': 'Any 5 consecutive die numbers',
                              'objective': {'type': 'straight', 'dice_required': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': False},
                             {'id': 'hero_raveness_8',
@@ -2768,24 +2565,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                              'effect': '13 damage; Hex',
                              'symbols': 'Raven Eye ×5',
                              'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                             'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                             'workbook.',
+                             'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                              'is_basic_attack': False,
                              'is_ultimate': True}],
-              'dice_visuals': {'backgrounds': ['#0C0C14',
-                                               '#0C0C14',
-                                               '#0C0C14',
-                                               '#0C0C14',
-                                               '#0C0C14',
-                                               '#0C0C14'],
+              'dice_visuals': {'backgrounds': ['#0C0C14', '#0C0C14', '#0C0C14', '#0C0C14', '#0C0C14', '#0C0C14'],
                                'symbol_colors': {'A': '#F4F4F4', 'B': '#27D972', 'C': '#E629BD'},
                                'render_colors': {'A': '#F4F4F4', 'B': '#27D972', 'C': '#E629BD'},
                                'labels': {'A': 'Talon', 'B': 'Wing', 'C': 'Raven Eye'},
-                               'palette_status': 'Read from the six numbered die-key references in the '
-                                                 'supplied Excel workbook; hex values are visual estimates. '
-                                                 'Dominant die-edge background selected as the uniform '
-                                                 'six-die base color because the reference showed more than '
-                                                 'two background variants.'}},
+                               'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                 'workbook; hex values are visual estimates. Dominant die-edge '
+                                                 'background selected as the uniform six-die base color because the '
+                                                 'reference showed more than two background variants.'}},
  'Rogue': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_rogue_1',
@@ -2794,8 +2584,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '4 damage',
                           'symbols': 'Touch ×3',
                           'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': True,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_2',
@@ -2804,8 +2593,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '3 undefendable damage; Influence',
                           'symbols': 'Touch ×2 + Ion ×2',
                           'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_3',
@@ -2814,8 +2602,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '7 damage; Influence',
                           'symbols': 'Any 4 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_4',
@@ -2824,8 +2611,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 undefendable damage; Influence',
                           'symbols': 'Ion ×4',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_5',
@@ -2834,8 +2620,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 3 damage and heal about 3; transfers health',
                           'symbols': 'Touch + Soar ×3',
                           'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 3}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_6',
@@ -2844,8 +2629,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '7 damage',
                           'symbols': 'Soar ×2 + Ion ×2',
                           'objective': {'type': 'combination', 'letters': {'B': 2, 'C': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_rogue_7',
@@ -2854,19 +2638,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '11 damage; Influence',
                           'symbols': 'Ion ×5',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
-                          'is_ultimate': True}],
+                          'is_ultimate': True},
+                         {'id': 'hero_rogue_large_straight',
+                          'code': 'LARGE_STRAIGHT',
+                          'name': 'Absorption',
+                          'effect': 'Large straight objective (5 consecutive die numbers)',
+                          'symbols': 'Any 5 consecutive die numbers',
+                          'objective': {'type': 'straight', 'dice_required': 5},
+                          'verification': 'Generic Large Straight objective added for universal coverage; '
+                                          'character-specific ability effect not verified.',
+                          'is_basic_attack': False,
+                          'is_ultimate': False}],
            'dice_visuals': {'backgrounds': ['#3C7C5C', '#3C7C5C', '#3C7C5C', '#3C7C5C', '#3C7C5C', '#3C7C5C'],
                             'symbol_colors': {'A': '#D8F82D', 'B': '#2AE8DB', 'C': '#FFFFFF'},
                             'render_colors': {'A': '#D8F82D', 'B': '#2AE8DB', 'C': '#FFFFFF'},
                             'labels': {'A': 'Touch', 'B': 'Soar', 'C': 'Ion'},
-                            'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                              'Excel workbook; hex values are visual estimates. Dominant '
-                                              'die-edge background selected as the uniform six-die base '
-                                              'color because the reference showed more than two background '
-                                              'variants.'}},
+                            'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                              'workbook; hex values are visual estimates. Dominant die-edge background '
+                                              'selected as the uniform six-die base color because the reference showed '
+                                              'more than two background variants.'}},
  'Samurai': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_samurai_1',
@@ -2875,8 +2667,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 damage',
                             'symbols': 'Katana ×3',
                             'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_2',
@@ -2885,8 +2676,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '3 undefendable damage',
                             'symbols': 'Katana ×2 + Rising Sun ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_3',
@@ -2895,8 +2685,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '7 damage; Shame',
                             'symbols': 'Katana ×2 + Kabuto ×3',
                             'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_4',
@@ -2905,8 +2694,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '6 damage',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_5',
@@ -2915,8 +2703,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 undefendable damage; Shame',
                             'symbols': 'Rising Sun ×4',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_6',
@@ -2925,8 +2712,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '7 damage +1 per Katana in a 4-die roll; Shame',
                             'symbols': 'Any 5 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_samurai_7',
@@ -2935,21 +2721,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '13 damage; Shame',
                             'symbols': 'Rising Sun ×5',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#643C5C',
-                                              '#643C5C',
-                                              '#643C5C',
-                                              '#643C5C',
-                                              '#643C5C',
-                                              '#643C5C'],
+             'dice_visuals': {'backgrounds': ['#643C5C', '#643C5C', '#643C5C', '#643C5C', '#643C5C', '#643C5C'],
                               'symbol_colors': {'A': '#F5CF2C', 'B': '#9AD121', 'C': '#47F200'},
                               'render_colors': {'A': '#F5CF2C', 'B': '#9AD121', 'C': '#47F200'},
                               'labels': {'A': 'Katana', 'B': 'Kabuto', 'C': 'Rising Sun'},
-                              'palette_status': 'Read from the six numbered die-key references in the '
-                                                'supplied Excel workbook; hex values are visual estimates.'}},
+                              'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                'workbook; hex values are visual estimates.'}},
  'Santa': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_santa_1',
@@ -2958,8 +2738,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '4 damage',
                           'symbols': 'Axe ×3',
                           'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': True,
                           'is_ultimate': False},
                          {'id': 'hero_santa_2',
@@ -2968,8 +2747,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 9 damage; gain Egg Nog',
                           'symbols': 'Axe ×3 + Star ×2',
                           'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_3',
@@ -2978,8 +2756,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 7 undefendable damage; outcome also affects Egg Nog',
                           'symbols': 'Bell ×4',
                           'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_4',
@@ -2988,8 +2765,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 11 damage',
                           'symbols': 'Axe ×2 + Bell ×2 + Star',
                           'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2, 'C': 1}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_5',
@@ -2998,8 +2774,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 8 damage; scales with Cheer',
                           'symbols': 'Any 4 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_6',
@@ -3008,8 +2783,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 undefendable damage; gain Cheer and Egg Nog',
                           'symbols': 'Star ×4',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_7',
@@ -3018,8 +2792,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'About 9 damage; scales with Cheer',
                           'symbols': 'Any 5 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_santa_8',
@@ -3028,19 +2801,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '10 damage; gain Cheer and Egg Nog',
                           'symbols': 'Star ×5',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': True}],
            'dice_visuals': {'backgrounds': ['#5C1C1C', '#5C1C1C', '#5C1C1C', '#5C1C1C', '#5C1C1C', '#5C1C1C'],
                             'symbol_colors': {'A': '#F2E9E6', 'B': '#F5C42C', 'C': '#F27300'},
                             'render_colors': {'A': '#F2E9E6', 'B': '#F5C42C', 'C': '#F27300'},
                             'labels': {'A': 'Axe', 'B': 'Bell', 'C': 'Star'},
-                            'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                              'Excel workbook; hex values are visual estimates. Dominant '
-                                              'die-edge background selected as the uniform six-die base '
-                                              'color because the reference showed more than two background '
-                                              'variants.'}},
+                            'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                              'workbook; hex values are visual estimates. Dominant die-edge background '
+                                              'selected as the uniform six-die base color because the reference showed '
+                                              'more than two background variants.'}},
  'Scarlet Witch': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                    'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                    'abilities': [{'id': 'hero_scarlet_witch_1',
@@ -3049,8 +2820,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '4 damage',
                                   'symbols': 'Warp ×3',
                                   'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': True,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_2',
@@ -3059,8 +2830,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': 'Setup/status resources; damage not sufficiently verified',
                                   'symbols': 'Spell ×2',
                                   'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_3',
@@ -3069,8 +2840,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': 'About 9 damage; Reality Warp',
                                   'symbols': 'Warp ×2 + Chaos ×2',
                                   'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 2}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_4',
@@ -3078,10 +2849,9 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'name': 'Mind Blast',
                                   'effect': 'About 9 pure damage',
                                   'symbols': 'One of each symbol',
-                                  'objective': {'type': 'combination',
-                                                'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_5',
@@ -3090,8 +2860,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '7 damage; Reality Warp',
                                   'symbols': 'Any 4 consecutive die numbers',
                                   'objective': {'type': 'straight', 'dice_required': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_6',
@@ -3100,8 +2870,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '6 undefendable damage; Reality Warp',
                                   'symbols': 'Crown ×4',
                                   'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_7',
@@ -3110,8 +2880,8 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '9 damage; Conjure',
                                   'symbols': 'Warp + Crown ×3',
                                   'objective': {'type': 'combination', 'letters': {'A': 1, 'D': 3}},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
                                   'is_ultimate': False},
                                  {'id': 'hero_scarlet_witch_8',
@@ -3120,24 +2890,29 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                   'effect': '12 damage; Reality Warp',
                                   'symbols': 'Crown ×5',
                                   'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                                  'verification': 'Matches the user-approved Full Character Objective List '
-                                                  'v3 workbook.',
+                                  'verification': 'Matches the user-approved Full Character Objective List v3 '
+                                                  'workbook.',
                                   'is_basic_attack': False,
-                                  'is_ultimate': True}],
-                   'dice_visuals': {'backgrounds': ['#2C2424',
-                                                    '#2C2424',
-                                                    '#2C2424',
-                                                    '#2C2424',
-                                                    '#2C2424',
-                                                    '#2C2424'],
+                                  'is_ultimate': True},
+                                 {'id': 'hero_scarlet_witch_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Spellcraft',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}],
+                   'dice_visuals': {'backgrounds': ['#2C2424', '#2C2424', '#2C2424', '#2C2424', '#2C2424', '#2C2424'],
                                     'symbol_colors': {'A': '#E92A9E', 'B': '#F5CE2C', 'C': '#F2F2F2'},
                                     'render_colors': {'A': '#E92A9E', 'B': '#F5CE2C', 'C': '#F2F2F2'},
                                     'labels': {'A': 'Warp', 'B': 'Chaos', 'C': 'Spell/Crown'},
-                                    'palette_status': 'Read from the six numbered die-key references in the '
-                                                      'supplied Excel workbook; hex values are visual '
-                                                      'estimates. Dominant die-edge background selected as '
-                                                      'the uniform six-die base color because the reference '
-                                                      'showed more than two background variants.'}},
+                                    'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                      'Excel workbook; hex values are visual estimates. Dominant '
+                                                      'die-edge background selected as the uniform six-die base color '
+                                                      'because the reference showed more than two background '
+                                                      'variants.'}},
  'Seraph': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_seraph_1',
@@ -3146,8 +2921,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 damage',
                            'symbols': 'Blade ×3',
                            'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': True,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_2',
@@ -3156,8 +2930,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '6 damage; gain Flight',
                            'symbols': 'Blade ×3 + Wings',
                            'objective': {'type': 'combination', 'letters': {'A': 3, 'B': 1}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_3',
@@ -3166,8 +2939,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'Choose: about 5 undefendable damage OR heal 4 and cleanse',
                            'symbols': 'Cross ×2 + Angelic Pendant',
                            'objective': {'type': 'combination', 'letters': {'C': 2, 'D': 1}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_4',
@@ -3176,8 +2948,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '2 damage per Blade in a 4-die roll; can gain Flight',
                            'symbols': 'Blade + Wings + Cross + Angelic Pendant',
                            'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 1, 'C': 1, 'D': 1}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_5',
@@ -3186,8 +2957,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'About 7 undefendable damage',
                            'symbols': 'Any 4 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_6',
@@ -3196,8 +2966,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '8 damage; Blinding Light; gain Flight',
                            'symbols': 'Angelic Pendant ×4',
                            'objective': {'type': 'letter', 'letter': 'D', 'minimum': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_7',
@@ -3206,8 +2975,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '8 damage; Blinding Light; gain Flight',
                            'symbols': 'Any 5 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_seraph_8',
@@ -3216,21 +2984,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '13 damage; gain Flight',
                            'symbols': 'Angelic Pendant ×5',
                            'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': True}],
-            'dice_visuals': {'backgrounds': ['#5C6444',
-                                             '#5C6444',
-                                             '#5C6444',
-                                             '#5C6444',
-                                             '#5C6444',
-                                             '#5C6444'],
+            'dice_visuals': {'backgrounds': ['#5C6444', '#5C6444', '#5C6444', '#5C6444', '#5C6444', '#5C6444'],
                              'symbol_colors': {'A': '#F8F8F8', 'B': '#B9B9B9', 'C': '#F2D427'},
                              'render_colors': {'A': '#F8F8F8', 'B': '#B9B9B9', 'C': '#F2D427'},
                              'labels': {'A': 'Heavenly', 'B': 'Wing', 'C': 'Light'},
-                             'palette_status': 'Read from the six numbered die-key references in the '
-                                               'supplied Excel workbook; hex values are visual estimates.'}},
+                             'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                               'workbook; hex values are visual estimates.'}},
  'Shadow Thief': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                   'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                   'abilities': [{'id': 'hero_shadow_thief_1',
@@ -3239,8 +3001,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '4 damage; Poison',
                                  'symbols': 'Dagger ×3',
                                  'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': True,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_2',
@@ -3249,8 +3010,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Damage based on half your CP (rounded up)',
                                  'symbols': 'Any 4 consecutive die numbers',
                                  'objective': {'type': 'straight', 'dice_required': 4},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_3',
@@ -3259,8 +3019,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Gain CP; exact amount varies with Shadow',
                                  'symbols': 'Bag ×2',
                                  'objective': {'type': 'letter', 'letter': 'B', 'minimum': 2},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_4',
@@ -3269,8 +3028,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Damage equal to your CP pool',
                                  'symbols': 'Any 5 consecutive die numbers',
                                  'objective': {'type': 'straight', 'dice_required': 5},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_5',
@@ -3279,8 +3037,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'About 2 pure damage; gain Shadows and Sneak Attack',
                                  'symbols': 'Shadow ×3',
                                  'objective': {'type': 'letter', 'letter': 'D', 'minimum': 3},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_6',
@@ -3289,8 +3046,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Card/economy ability; damage not sufficiently verified',
                                  'symbols': 'Card ×2',
                                  'objective': {'type': 'letter', 'letter': 'C', 'minimum': 2},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_shadow_thief_7',
@@ -3299,22 +3055,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Damage equal to your CP pool +5',
                                  'symbols': 'Shadow ×5',
                                  'objective': {'type': 'letter', 'letter': 'D', 'minimum': 5},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': True}],
-                  'dice_visuals': {'backgrounds': ['#543444',
-                                                   '#543444',
-                                                   '#543444',
-                                                   '#543444',
-                                                   '#543444',
-                                                   '#543444'],
+                  'dice_visuals': {'backgrounds': ['#543444', '#543444', '#543444', '#543444', '#543444', '#543444'],
                                    'symbol_colors': {'A': '#C42BF1', 'B': '#F3B52C', 'C': '#EAD9F1'},
                                    'render_colors': {'A': '#C42BF1', 'B': '#F3B52C', 'C': '#EAD9F1'},
                                    'labels': {'A': 'Dagger', 'B': 'Bag', 'C': 'Card/Shadow'},
-                                   'palette_status': 'Read from the six numbered die-key references in the '
-                                                     'supplied Excel workbook; hex values are visual '
-                                                     'estimates.'}},
+                                   'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                     'Excel workbook; hex values are visual estimates.'}},
  'Spider-Man': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                 'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                 'abilities': [{'id': 'hero_spider_man_1',
@@ -3323,8 +3072,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '4 damage',
                                'symbols': 'Thwip ×3',
                                'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': True,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_2',
@@ -3333,8 +3081,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '5 damage; gain Combo',
                                'symbols': 'Thwip ×2 + Spider ×2',
                                'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_3',
@@ -3343,8 +3090,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '7 damage; gain Invisibility',
                                'symbols': 'Thwip ×2 + Web ×3',
                                'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_4',
@@ -3353,8 +3099,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': 'Damage equal to the total of 2 dice; may grant Combo',
                                'symbols': 'Thwip + Web ×2 + Spider',
                                'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_5',
@@ -3363,8 +3108,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '5 damage; Webbed',
                                'symbols': 'Any 4 consecutive die numbers',
                                'objective': {'type': 'straight', 'dice_required': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_6',
@@ -3373,8 +3117,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '7 undefendable damage; Invisibility',
                                'symbols': 'Spider ×4',
                                'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
                                'is_ultimate': False},
                               {'id': 'hero_spider_man_7',
@@ -3383,22 +3126,25 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                'effect': '13 damage; Webbed and Invisibility',
                                'symbols': 'Spider ×5',
                                'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                               'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                               'workbook.',
+                               'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                'is_basic_attack': False,
-                               'is_ultimate': True}],
-                'dice_visuals': {'backgrounds': ['#04142C',
-                                                 '#04142C',
-                                                 '#04142C',
-                                                 '#04142C',
-                                                 '#04142C',
-                                                 '#04142C'],
+                               'is_ultimate': True},
+                              {'id': 'hero_spider_man_large_straight',
+                               'code': 'LARGE_STRAIGHT',
+                               'name': 'Ensnare',
+                               'effect': 'Large straight objective (5 consecutive die numbers)',
+                               'symbols': 'Any 5 consecutive die numbers',
+                               'objective': {'type': 'straight', 'dice_required': 5},
+                               'verification': 'Generic Large Straight objective added for universal coverage; '
+                                               'character-specific ability effect not verified.',
+                               'is_basic_attack': False,
+                               'is_ultimate': False}],
+                'dice_visuals': {'backgrounds': ['#04142C', '#04142C', '#04142C', '#04142C', '#04142C', '#04142C'],
                                  'symbol_colors': {'A': '#20D8F4', 'B': '#F5F5F5', 'C': '#F02B34'},
                                  'render_colors': {'A': '#20D8F4', 'B': '#F5F5F5', 'C': '#F02B34'},
                                  'labels': {'A': 'Whip', 'B': 'Web', 'C': 'Spider'},
-                                 'palette_status': 'Read from the six numbered die-key references in the '
-                                                   'supplied Excel workbook; hex values are visual '
-                                                   'estimates.'}},
+                                 'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                   'Excel workbook; hex values are visual estimates.'}},
  'Storm': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
            'mapping_status': 'User-confirmed face mapping (leaflet reference)',
            'abilities': [{'id': 'hero_storm_1',
@@ -3407,8 +3153,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '5 damage; can be charged for +3',
                           'symbols': 'Wind ×3',
                           'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': True,
                           'is_ultimate': False},
                          {'id': 'hero_storm_2',
@@ -3417,8 +3162,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'Charged effect; damage not sufficiently verified',
                           'symbols': 'Wind + Rain ×2 + Cyclone',
                           'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_3',
@@ -3427,8 +3171,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '7 damage; gain Tornado/Lightning',
                           'symbols': 'Wind ×2 + Rain ×3',
                           'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_4',
@@ -3437,8 +3180,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': 'Damage equal to the total of 2 dice; Tornado',
                           'symbols': 'Wind ×3 + Cyclone ×2',
                           'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_5',
@@ -3447,8 +3189,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '6 damage',
                           'symbols': 'Any 4 consecutive die numbers',
                           'objective': {'type': 'straight', 'dice_required': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_6',
@@ -3457,8 +3198,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '8 undefendable damage',
                           'symbols': 'Cyclone ×4',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_7',
@@ -3467,8 +3207,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '10 damage; requires 6 dice and special full straight',
                           'symbols': 'Special: full 1–6 straight using borrowed dice',
                           'objective': None,
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
                           'is_ultimate': False},
                          {'id': 'hero_storm_7',
@@ -3477,19 +3216,27 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                           'effect': '12 damage',
                           'symbols': 'Cyclone ×5',
                           'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                          'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                          'workbook.',
+                          'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                           'is_basic_attack': False,
-                          'is_ultimate': True}],
+                          'is_ultimate': True},
+                         {'id': 'hero_storm_large_straight',
+                          'code': 'LARGE_STRAIGHT',
+                          'name': 'Gust',
+                          'effect': 'Large straight objective (5 consecutive die numbers)',
+                          'symbols': 'Any 5 consecutive die numbers',
+                          'objective': {'type': 'straight', 'dice_required': 5},
+                          'verification': 'Generic Large Straight objective added for universal coverage; '
+                                          'character-specific ability effect not verified.',
+                          'is_basic_attack': False,
+                          'is_ultimate': False}],
            'dice_visuals': {'backgrounds': ['#4C5C64', '#4C5C64', '#4C5C64', '#4C5C64', '#4C5C64', '#4C5C64'],
                             'symbol_colors': {'A': '#D9E7EC', 'B': '#2AB3EA', 'C': '#F0E22B'},
                             'render_colors': {'A': '#D9E7EC', 'B': '#2AB3EA', 'C': '#F0E22B'},
                             'labels': {'A': 'Wind', 'B': 'Rain', 'C': 'Cyclone'},
-                            'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                              'Excel workbook; hex values are visual estimates. Dominant '
-                                              'die-edge background selected as the uniform six-die base '
-                                              'color because the reference showed more than two background '
-                                              'variants.'}},
+                            'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                              'workbook; hex values are visual estimates. Dominant die-edge background '
+                                              'selected as the uniform six-die base color because the reference showed '
+                                              'more than two background variants.'}},
  'Sun Elf': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
              'mapping_status': 'User-confirmed face mapping (leaflet reference)',
              'abilities': [{'id': 'hero_sun_elf_1',
@@ -3498,8 +3245,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '4 damage',
                             'symbols': 'Stave ×3',
                             'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': True,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_2',
@@ -3508,8 +3254,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': 'Heal 2 health; gain Charged Gem/Sun Dial',
                             'symbols': 'Charge ×4',
                             'objective': {'type': 'letter', 'letter': 'B', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_3',
@@ -3518,8 +3263,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '5 damage; charge Sun Dial',
                             'symbols': 'Stave + Charge ×3',
                             'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 3}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_4',
@@ -3528,8 +3272,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '6 damage; Sun-Marked',
                             'symbols': 'Stave ×3 + Sun Power ×2',
                             'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_5',
@@ -3538,8 +3281,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '7 damage',
                             'symbols': 'Any 4 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_6',
@@ -3548,8 +3290,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '8 damage; charge Sun Dial',
                             'symbols': 'Sun Power ×4',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_7',
@@ -3558,8 +3299,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '9 damage; charge Sun Dial',
                             'symbols': 'Any 5 consecutive die numbers',
                             'objective': {'type': 'straight', 'dice_required': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': False},
                            {'id': 'hero_sun_elf_8',
@@ -3568,21 +3308,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                             'effect': '10 damage; Sun-Marked',
                             'symbols': 'Sun Power ×5',
                             'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                            'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                            'workbook.',
+                            'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                             'is_basic_attack': False,
                             'is_ultimate': True}],
-             'dice_visuals': {'backgrounds': ['#F2E6B5',
-                                              '#F2E6B5',
-                                              '#F2E6B5',
-                                              '#F2E6B5',
-                                              '#F2E6B5',
-                                              '#F2E6B5'],
+             'dice_visuals': {'backgrounds': ['#F2E6B5', '#F2E6B5', '#F2E6B5', '#F2E6B5', '#F2E6B5', '#F2E6B5'],
                               'symbol_colors': {'A': '#268CD1', 'B': '#154585', 'C': '#D12630'},
                               'render_colors': {'A': '#268CD1', 'B': '#154585', 'C': '#D12630'},
                               'labels': {'A': 'Staff', 'B': 'Charge', 'C': 'Power'},
-                              'palette_status': 'User-supplied leaflet image; face 6 symbol confirmed red by '
-                                                'user; colors are visual estimates.'}},
+                              'palette_status': 'User-supplied leaflet image; face 6 symbol confirmed red by user; '
+                                                'colors are visual estimates.'}},
  'Tactician': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_tactician_1',
@@ -3591,8 +3325,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 damage',
                               'symbols': 'Saber ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_2',
@@ -3601,8 +3334,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '2 collateral damage to all opponents',
                               'symbols': 'Saber ×2 + Medal ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_3',
@@ -3611,8 +3343,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'About 5 damage; grants Tactical Advantage / bonus phase',
                               'symbols': 'Saber + Flag ×3',
                               'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 3}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_4',
@@ -3621,8 +3352,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '7 damage; Constrict',
                               'symbols': 'Saber ×3 + Medal ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_5',
@@ -3631,8 +3361,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_6',
@@ -3641,8 +3370,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 undefendable damage; gain Tactical Advantage',
                               'symbols': 'Medal ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_7',
@@ -3651,8 +3379,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '9 damage; Constrict',
                               'symbols': 'Any 5 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_tactician_8',
@@ -3661,24 +3388,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '12 damage; Targeted and Constrict',
                               'symbols': 'Medal ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#343C44',
-                                                '#343C44',
-                                                '#343C44',
-                                                '#343C44',
-                                                '#343C44',
-                                                '#343C44'],
+               'dice_visuals': {'backgrounds': ['#343C44', '#343C44', '#343C44', '#343C44', '#343C44', '#343C44'],
                                 'symbol_colors': {'A': '#D7EAF4', 'B': '#F22CAC', 'C': '#27A6F2'},
                                 'render_colors': {'A': '#D7EAF4', 'B': '#F22CAC', 'C': '#27A6F2'},
                                 'labels': {'A': 'Saber', 'B': 'Flag', 'C': 'Medal'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual estimates. '
-                                                  'Dominant die-edge background selected as the uniform '
-                                                  'six-die base color because the reference showed more than '
-                                                  'two background variants.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates. Dominant die-edge '
+                                                  'background selected as the uniform six-die base color because the '
+                                                  'reference showed more than two background variants.'}},
  'Thor': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
           'mapping_status': 'User-confirmed face mapping (leaflet reference)',
           'abilities': [{'id': 'hero_thor_1',
@@ -3687,8 +3407,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '4 undefendable damage',
                          'symbols': 'Hammer ×3',
                          'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': True,
                          'is_ultimate': False},
                         {'id': 'hero_thor_2',
@@ -3697,8 +3416,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'Heal 2 health; collateral effect to all opponents',
                          'symbols': 'Hammer + Worthy ×2 + Thunder',
                          'objective': {'type': 'combination', 'letters': {'A': 1, 'B': 2, 'C': 1}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_3',
@@ -3707,8 +3425,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 7 damage',
                          'symbols': 'Hammer ×2 + Worthy ×3',
                          'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_4',
@@ -3717,8 +3434,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 10 collateral damage to all opponents',
                          'symbols': 'Hammer ×3 + Thunder ×2',
                          'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_5',
@@ -3727,8 +3443,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '7 damage',
                          'symbols': 'Any 4 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_6',
@@ -3737,8 +3452,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': 'About 8 damage; Mjölnir/Guard Break effects',
                          'symbols': 'Thunder ×4',
                          'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_7',
@@ -3747,8 +3461,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '10 damage',
                          'symbols': 'Any 5 consecutive die numbers',
                          'objective': {'type': 'straight', 'dice_required': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': False},
                         {'id': 'hero_thor_8',
@@ -3757,16 +3470,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                          'effect': '14 damage',
                          'symbols': 'Thunder ×5',
                          'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                         'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                         'workbook.',
+                         'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                          'is_basic_attack': False,
                          'is_ultimate': True}],
           'dice_visuals': {'backgrounds': ['#245474', '#245474', '#245474', '#245474', '#245474', '#245474'],
                            'symbol_colors': {'A': '#2CC1F7', 'B': '#E52F29', 'C': '#F3E32C'},
                            'render_colors': {'A': '#2CC1F7', 'B': '#E52F29', 'C': '#F3E32C'},
                            'labels': {'A': 'Hammer', 'B': 'Worthy', 'C': 'Thunder'},
-                           'palette_status': 'Read from the six numbered die-key references in the supplied '
-                                             'Excel workbook; hex values are visual estimates.'}},
+                           'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                             'workbook; hex values are visual estimates.'}},
  'Treant': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
             'mapping_status': 'User-confirmed face mapping (leaflet reference)',
             'abilities': [{'id': 'hero_treant_1',
@@ -3775,19 +3487,16 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '5 damage; can inflict Barbed Vine',
                            'symbols': 'Branch ×3',
                            'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': True,
                            'is_ultimate': False},
                           {'id': 'hero_treant_2',
                            'code': 'BBCC',
                            'name': 'Tend',
-                           'effect': 'No verified direct damage; inflicts Barbed Vine and grants '
-                                     'Wellspring/Spirits',
+                           'effect': 'No verified direct damage; inflicts Barbed Vine and grants Wellspring/Spirits',
                            'symbols': 'Leaf ×2 + Nature Swirl ×2',
                            'objective': {'type': 'combination', 'letters': {'B': 2, 'C': 2}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_treant_3',
@@ -3796,8 +3505,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'About 8 undefendable damage',
                            'symbols': 'Branch ×2 + Leaf ×3',
                            'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_treant_4',
@@ -3806,8 +3514,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '7 damage; Barbed Vine',
                            'symbols': 'Any 4 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_treant_5',
@@ -3816,8 +3523,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': 'About 8 undefendable damage; builds Spirits',
                            'symbols': 'Nature Swirl ×4',
                            'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_treant_6',
@@ -3826,8 +3532,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '8 damage +1 per Branch rolled',
                            'symbols': 'Any 5 consecutive die numbers',
                            'objective': {'type': 'straight', 'dice_required': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': False},
                           {'id': 'hero_treant_7',
@@ -3836,24 +3541,17 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                            'effect': '10 damage; Barbed Vine',
                            'symbols': 'Nature Swirl ×5',
                            'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                           'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                           'workbook.',
+                           'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                            'is_basic_attack': False,
                            'is_ultimate': True}],
-            'dice_visuals': {'backgrounds': ['#2C2424',
-                                             '#2C2424',
-                                             '#2C2424',
-                                             '#2C2424',
-                                             '#2C2424',
-                                             '#2C2424'],
+            'dice_visuals': {'backgrounds': ['#2C2424', '#2C2424', '#2C2424', '#2C2424', '#2C2424', '#2C2424'],
                              'symbol_colors': {'A': '#DC8628', 'B': '#95E129', 'C': '#F2E527'},
                              'render_colors': {'A': '#DC8628', 'B': '#95E129', 'C': '#F2E527'},
                              'labels': {'A': 'Branch', 'B': 'Leaf', 'C': 'Spirit'},
-                             'palette_status': 'Read from the six numbered die-key references in the '
-                                               'supplied Excel workbook; hex values are visual estimates. '
-                                               'Dominant die-edge background selected as the uniform six-die '
-                                               'base color because the reference showed more than two '
-                                               'background variants.'}},
+                             'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                               'workbook; hex values are visual estimates. Dominant die-edge '
+                                               'background selected as the uniform six-die base color because the '
+                                               'reference showed more than two background variants.'}},
  'Vampire Lord': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                   'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                   'abilities': [{'id': 'hero_vampire_lord_1',
@@ -3862,8 +3560,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '3 damage',
                                  'symbols': 'Claw ×3',
                                  'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': True,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_2',
@@ -3872,8 +3569,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '4 undefendable damage',
                                  'symbols': 'Gaze ×3',
                                  'objective': {'type': 'letter', 'letter': 'B', 'minimum': 3},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_3',
@@ -3882,8 +3578,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': 'Heal 2 health; gain 3 Blood Power',
                                  'symbols': 'Gaze ×3 + Droplet',
                                  'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_4',
@@ -3892,8 +3587,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '6 damage +1 per Claw in a 3-die roll',
                                  'symbols': 'Claw ×3 + Droplet ×2',
                                  'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_5',
@@ -3902,8 +3596,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '7 damage; Bleed',
                                  'symbols': 'Any 4 consecutive die numbers',
                                  'objective': {'type': 'straight', 'dice_required': 4},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_6',
@@ -3912,8 +3605,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '5 undefendable damage; gain Blood Power',
                                  'symbols': 'Droplet ×4',
                                  'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_7',
@@ -3922,8 +3614,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '8 undefendable damage; Bleed',
                                  'symbols': 'Any 5 consecutive die numbers',
                                  'objective': {'type': 'straight', 'dice_required': 5},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': False},
                                 {'id': 'hero_vampire_lord_8',
@@ -3932,22 +3623,15 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                                  'effect': '10 damage; gain Blood Power',
                                  'symbols': 'Droplet ×5',
                                  'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                                 'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                                 'workbook.',
+                                 'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                                  'is_basic_attack': False,
                                  'is_ultimate': True}],
-                  'dice_visuals': {'backgrounds': ['#441C44',
-                                                   '#441C44',
-                                                   '#441C44',
-                                                   '#441C44',
-                                                   '#441C44',
-                                                   '#441C44'],
+                  'dice_visuals': {'backgrounds': ['#441C44', '#441C44', '#441C44', '#441C44', '#441C44', '#441C44'],
                                    'symbol_colors': {'A': '#E8D9EF', 'B': '#EC27F2', 'C': '#E3293E'},
                                    'render_colors': {'A': '#E8D9EF', 'B': '#EC27F2', 'C': '#E3293E'},
                                    'labels': {'A': 'Claw', 'B': 'Gaze', 'C': 'Droplet'},
-                                   'palette_status': 'Read from the six numbered die-key references in the '
-                                                     'supplied Excel workbook; hex values are visual '
-                                                     'estimates.'}},
+                                   'palette_status': 'Read from the six numbered die-key references in the supplied '
+                                                     'Excel workbook; hex values are visual estimates.'}},
  'Wolverine': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                'mapping_status': 'User-confirmed face mapping (leaflet reference)',
                'abilities': [{'id': 'hero_wolverine_1',
@@ -3956,8 +3640,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '4 damage',
                               'symbols': 'Claw ×3',
                               'objective': {'type': 'letter', 'letter': 'A', 'minimum': 3},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': True,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_2',
@@ -3966,8 +3649,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '3 undefendable damage; heal 1 health and cleanse',
                               'symbols': 'Claw ×2 + Mask ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_3',
@@ -3976,8 +3658,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'Heal 4 health',
                               'symbols': 'Adamantium ×3 + Mask',
                               'objective': {'type': 'combination', 'letters': {'B': 3, 'C': 1}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_4',
@@ -3986,8 +3667,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 damage',
                               'symbols': 'Claw ×2 + Adamantium ×3',
                               'objective': {'type': 'combination', 'letters': {'A': 2, 'B': 3}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_5',
@@ -3996,8 +3676,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '5 damage; heal 1 health; Alpha',
                               'symbols': 'Any 4 consecutive die numbers',
                               'objective': {'type': 'straight', 'dice_required': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_6',
@@ -4006,8 +3685,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '6 undefendable damage; heal 1 health; Alpha',
                               'symbols': 'Mask ×4',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 4},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_7',
@@ -4016,8 +3694,7 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': 'About 10 damage; Alpha',
                               'symbols': 'Claw ×3 + Mask ×2',
                               'objective': {'type': 'combination', 'letters': {'A': 3, 'C': 2}},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
                               'is_ultimate': False},
                              {'id': 'hero_wolverine_8',
@@ -4026,33 +3703,63 @@ HERO_PROFILES = {'Alchemist': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5
                               'effect': '12 damage; heal 3 health',
                               'symbols': 'Mask ×5',
                               'objective': {'type': 'letter', 'letter': 'C', 'minimum': 5},
-                              'verification': 'Matches the user-approved Full Character Objective List v3 '
-                                              'workbook.',
+                              'verification': 'Matches the user-approved Full Character Objective List v3 workbook.',
                               'is_basic_attack': False,
-                              'is_ultimate': True}],
-               'dice_visuals': {'backgrounds': ['#B4443C',
-                                                '#B4443C',
-                                                '#B4443C',
-                                                '#B4443C',
-                                                '#B4443C',
-                                                '#B4443C'],
+                              'is_ultimate': True},
+                             {'id': 'hero_wolverine_large_straight',
+                              'code': 'LARGE_STRAIGHT',
+                              'name': 'Barrage',
+                              'effect': 'Large straight objective (5 consecutive die numbers)',
+                              'symbols': 'Any 5 consecutive die numbers',
+                              'objective': {'type': 'straight', 'dice_required': 5},
+                              'verification': 'Generic Large Straight objective added for universal coverage; '
+                                              'character-specific ability effect not verified.',
+                              'is_basic_attack': False,
+                              'is_ultimate': False}],
+               'dice_visuals': {'backgrounds': ['#B4443C', '#B4443C', '#B4443C', '#B4443C', '#B4443C', '#B4443C'],
                                 'symbol_colors': {'A': '#282828', 'B': '#E5B929', 'C': '#DDEEFF'},
                                 'render_colors': {'A': '#282828', 'B': '#E5B929', 'C': '#DDEEFF'},
                                 'labels': {'A': 'Claw', 'B': 'Adamantium', 'C': 'Mask'},
-                                'palette_status': 'Read from the six numbered die-key references in the '
-                                                  'supplied Excel workbook; hex values are visual estimates. '
-                                                  'Dominant die-edge background selected as the uniform '
-                                                  'six-die base color because the reference showed more than '
-                                                  'two background variants.'}},
+                                'palette_status': 'Read from the six numbered die-key references in the supplied Excel '
+                                                  'workbook; hex values are visual estimates. Dominant die-edge '
+                                                  'background selected as the uniform six-die base color because the '
+                                                  'reference showed more than two background variants.'}},
  'Custom AAABBC': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B', 6: 'C'},
                    'mapping_status': 'User-defined custom mapping',
-                   'abilities': []},
+                   'abilities': [{'id': 'hero_custom_aaabbc_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Large Straight',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}]},
  'Custom AABBCD': {'dice_config': {1: 'A', 2: 'A', 3: 'B', 4: 'B', 5: 'C', 6: 'D'},
                    'mapping_status': 'User-defined custom mapping',
-                   'abilities': []},
+                   'abilities': [{'id': 'hero_custom_aabbcd_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Large Straight',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}]},
  'Custom AAABCD': {'dice_config': {1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'C', 6: 'D'},
                    'mapping_status': 'User-defined custom mapping',
-                   'abilities': []}}
+                   'abilities': [{'id': 'hero_custom_aaabcd_large_straight',
+                                  'code': 'LARGE_STRAIGHT',
+                                  'name': 'Large Straight',
+                                  'effect': 'Large straight objective (5 consecutive die numbers)',
+                                  'symbols': 'Any 5 consecutive die numbers',
+                                  'objective': {'type': 'straight', 'dice_required': 5},
+                                  'verification': 'Generic Large Straight objective added for universal coverage; '
+                                                  'character-specific ability effect not verified.',
+                                  'is_basic_attack': False,
+                                  'is_ultimate': False}]}}
 
 CARD_OBJECTIVES = {'Deadpool': [{'name': 'Stabby, Stabby',
                'card_type': 'Fallback ability (Same card)',
